@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ruban</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="components/normalize-css/normalize.css" />
+	<link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="components/highlightjs/styles/tomorrow.css" />
+	<link rel="stylesheet" href="css/ruban.css" />
+	<link rel="stylesheet" href="css/ruban-print.css" media="print" />
+</head>
+
+<body>
+	<section id="lyon-docker-meetup-20140528" class="no-toc">
+		<h1><strong>Docker</strong> : <br />Pets vs Cattle</h1>
+	</section>
+	<section id="self-presentation" class="no-toc">
+		<h1>Damien DUPORTAL</h1>
+		<ul>
+			<li><i class="fa fa-building-o"></i> Worldline (Atos)</li>
+			<li><small class="fa fa-envelope-o"></small> damien.duportal@worldline.com</li>
+			<li><small class="fa fa-google-plus"></small> damien.duportal@gmail.com</li>
+			<li><i class="fa fa-twitter"></i>@DamienDuportal</li>
+			<li><i class="fa fa-github"></i> dduportal</li>
+		</ul>
+	</section>
+	<section id="table-of-contents" class="toc">
+		<h1>Au programme :</h1>
+	</section>
+
+	<!-- ==================== Cats ============================= -->
+	<section id="cats">
+		<h1>Des chats</h1>
+	</section>
+
+	<section>
+		<h2>Un chat c'est mignon</h2>
+		<p class="center-content">
+			<img src="img/chat-potte.jpg" alt="Chat Potte" />
+		</p>
+	</section>
+	<section>
+		<h2>Mais ça peut coûter cher</h2>
+		<p class="center-content">
+			<img src="img/chat-veto.jpg" alt="Chat Vétérinaire" />
+		</p>
+	</section>
+	<section>
+		<h2>Et grossir très (trop ?) vite</h2>
+		<p class="center-content">
+			<img src="img/chat-gros.jpg" alt="Gros chat" />
+		</p>
+	</section>
+
+	<!-- ==================== Cows ============================= -->
+	<section id="cows">
+		<h1>Des vaches</h1>
+	</section>
+	<section>
+		<h2>Les vaches c'est moins mignon...</h2>
+		<p class="center-content">
+			<img src="img/vache_pas_mignonne.jpg" alt="Vache pas mignonne" />
+		</p>
+	</section>
+	<section>
+		<h2>Mais c'est plus pratique</h2>
+		<p class="center-content">
+			<img src="img/vache_lait.jpg" alt="Vache lait" />
+		</p>
+	</section>
+	<section>
+		<h2>On peut les rentabiliser</h2>
+		<p class="center-content">
+			<img src="img/troupeau_vache.jpg" alt="Vache lait" />
+		</p>
+	</section>
+	<section>
+		<h2>Mais il faut apprendre à gérer le troupeau</h2>
+		<p class="center-content">
+			<img src="img/paysan.gif" alt="Paysan" />
+		</p>
+	</section>
+
+	<!-- ==================== Whales ============================= -->
+	<section id="whales">
+		<h1>Des baleines</h1>
+	</section>	
+	<section>
+		<h2>Oui, les "baleines" ?</h2>
+		<p class="center-content">
+			<img src="img/docker.png" alt="Docker " />
+		</p>
+	</section>
+	
+	<!-- ==================== Pets vs Cattle ====================== -->
+	<section id="pets_vs_cattle">
+		<h1>Pets vs. Cattle</h1>
+	</section>
+	<section>
+		<h2>Pets vs. Cattle</h2>
+		<p>Métaphore pour illustrer la capacité de mise à l'échelle de votre plateforme :</p>
+		<ul>
+			<li><strong>Pets == Scale Up :</strong><br /> J'augmente la taille de mes noeuds</li>
+			<li><strong>Cattle == Scale Out :</strong><br /> J'ajoute plus de (petits) noeuds</li>
+		</ul>
+	</section>
+	<section>
+		<h2>Pets vs Cattle</h2>
+		<p class="center-content">
+			<img src="img/pets_vs_cattle.png" alt="Pets vs Cattle" class="sized" />
+		</p>
+	</section>
+
+	<!-- ==================== Docker ====================== -->
+	<section id="docker">
+		<h1>Et Docker ?</h1>
+	</section>
+	<section>
+		<h2>Ce qu'apporte Docker 1/3</h2>
+		<p class="center-content">
+			<img src="img/eliminates-matrix-from-hell.png" alt="Eliminate Matrix From Hell" 
+				/>
+		</p>
+	</section>
+	<section>
+		<h2>Ce qu'apporte Docker 2/3</h2>
+		<p class="center-content">
+			<img src="img/container_vs_vms.jpg" alt="Containeur vs VMs" 
+				class="sized" />
+		</p>
+	</section>
+	<section>
+		<h2>Ce qu'apporte Docker 3/3</h2>
+		<p class="center-content">
+			<img src="img/docker_functions.jpg" alt="Eliminate Matrix From Hell" 
+				class="sized" />
+		</p>
+	</section>
+	<section>
+		<h2>Modèle du troupeau</h2>
+		<p class="center-content">
+		Un processus par containeur
+			<img src="img/docker-shipping.jpg" alt="Docker Shipping" />
+		</p>
+	</section>
+	<section>
+		<h2>Donc "Docker + chats" =</h2>
+		<p class="center-content">
+			<img src="img/groupe-chats.jpg" alt="Groupe de chats" />
+		</p>
+	</section>
+	<section>
+		<h1>Oui mais !</h1>
+	</section>
+	<section>
+		<h2>Pourquoi ?</h2>
+		<p class="center-content">
+			<img src="img/supervisord.png" alt="Supervisor" />
+		</p>
+	</section>
+	<section>
+		<h2>Utilisez le bon outil pour votre contexte !</h2>
+		<p class="center-content">
+			<img src="img/right_tool.jpg" alt="The right tool" />
+		</p>
+	</section>
+
+	<section id="examples">
+		<h1>Place à la pratique !</h1>
+	</section>
+
+	<section id="wp-app">
+		<h1>Soit une application Wordpress</h1>
+		<p class="center-content">
+			<img src="img/appA.png" alt="Basic LAMP App" />
+		</p>
+	</section>
+	<section>
+		<h1>Dockerfile (App V1)</h1>
+		<pre><code class="bash">FROM tutum/lamp
+MAINTAINER damien.duportal@gmail.com
+
+ADD ./my-wordpress-app /app
+
+EXPOSE 80 3306
+CMD ['/run.sh']</code></pre>
+	</section>
+	<section>
+		<h1>Docker run (App V1)</h1>
+		<pre><code class="bash">$ docker build -t my-wp-app .
+Step 0
+...
+
+$ docker run -p 80:80 my-wp-app
+e565fbbc6033e565fbbc6033</code></pre>
+	</section>
+	<section>
+		<h1>Un chat et une vache !</h1>
+		<p class="center-content">
+			<img src="img/appB.png" alt="WP et MySQL" />
+		</p>
+	</section>
+	<section>
+		<h1>Dockerfile 1 (App V2)</h1>
+		<pre><code class="bash">FROM my-apache-php
+MAINTAINER damien.duportal@gmail.com
+
+ADD ./my-wordpress-app /app
+
+EXPOSE 80
+CMD ["/usr/sbin/apache2","-D","FOREGROUND"]</code></pre>
+	</section>
+	<section>
+		<h1>Dockerfile 2 (App V2)</h1>
+<pre><code class="bash">FROM my-mysql
+MAINTAINER damien.duportal@gmail.com
+
+ADD monscript.sql /app/
+RUN mysql &lt; /app/monscript.sql
+
+EXPOSE 3306
+CMD ["/usr/bin/mysqld_safe""]</code></pre>
+	</section>
+	<section>
+		<h1>Docker run (App V2)</h1>
+		<pre><code class="bash">$ docker build -t my-wp-app ./dockerfile1/
+...
+$ docker build -t mysql ./dockerfile2/
+...
+$ docker run --name mysql mysql
+e565fbbc6033e565fbbc6033
+$ docker run --link mysql:db -p 80:80 my-wp-app
+3994fc1486923994fc148692</code></pre>
+	</section>
+	<section>
+		<h2>Des troupeaux de vaches</h2>
+		<p class="center-content">
+			<img src="img/appD.png" alt="WP et MySQL" />
+			<br />
+			Et un chat de berger !
+		</p>
+	</section>
+
+	<section>
+		<h2>Grâce à Docker :</h2>
+		<ul>
+			<li><strong>&gt;</strong> Coût diminué pour provisionner et lancer des serveurs</li>
+			<li><strong>&gt;</strong> Interêt de mutualiser les services == <strong>0</strong></li>
+		</ul>
+	</section>
+
+	<section>
+		<h2>Conséquences :</h2>
+		<ul>
+			<li><strong>&gt;</strong> Cloudification accélérée des applications</li>
+			<li><strong>&gt;</strong> La poussière sous le tapis revient !</li>
+		</ul>
+		<p><strong>Votre application est-elle <u><a href="http://12factor.net/" >"12 factors" ?</a></u></strong></p>
+	</section>
+
+	<section>
+		<h2>Merci ! Des questions ?</h2>
+		<p><i>Quelques ressources pratiques :</i></p>
+		<ul>
+			<li><strong>&gt;</strong> <a href="http://docs.docker.io/">http://docs.docker.io/</a></li>
+			<li><strong>&gt;</strong> <a href="http://cloudscaling.com/blog/cloud-computing/pets-vs-cattle-the-elastic-cloud-story/">Pets vs. Cattle: The Elastic Cloud Story</a></li>
+			<li><strong>&gt;</strong> <a href="https://speakerdeck.com/ubermuda/a-multi-container-symfony2-setup-with-docker">Multi-container on Symfony <small><small>(Geoffrey Bachelet ;-))</small></small></a></li>
+		</ul>
+		<footer>Presentation proudly powered by <u><a href="https://github.com/loicfrering/ruban">Ruban</a></u><br />Source available <u><a href="https://github.com/dduportal/presentations/">here</a></u></footer>
+	</section>
+
+	
+
+	<script src="components/jquery/jquery.min.js"></script>
+	<script src="components/keymaster/keymaster.js"></script>
+	<script src="components/hammerjs/hammer.min.js"></script>
+	<script src="components/highlightjs/highlight.pack.js"></script>
+	<script src="js/ruban.js"></script>
+	<script>
+		var ruban = new Ruban({
+			pagination: true
+		});
+	</script>
+</body>
+</html>
