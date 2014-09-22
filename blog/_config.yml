@@ -1,0 +1,13 @@
+# Site settings
+title: Damien DUPORTAL
+email: damien.duportal@gmail.com
+description: >
+  I'm a passionated software engineer who love doing DevOps stuff
+  but also rock-climbing.
+baseurl: ""
+url: ""
+twitter_username: DamienDuportal
+github_username:  dduportal
+
+# Build settings
+markdown: kramdown
