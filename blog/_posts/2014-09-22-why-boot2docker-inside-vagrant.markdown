@@ -44,33 +44,75 @@ To connect the Docker client to the Docker daemon, please set:
 OK, now you have a virtualbox VM running with boot2docker inside, how to use it ?
 
 As the console told you after the b2d boot, you have to use a Docker client and configure it to tell to the docker daemon running inside the VM :
- 
-
-
-
-
-
-
-
-The documentation says that Docker dameon running inside b2d is listening on 2 sockets :
-
-* A Unix socket located in /var/run/docker.sock (this is the default), which is a file acting like a pipe, used a communication lonk beetween docker client and the docker daemon.
-* A TCP socket listening on all the VM IPs (0.0.0.0), on the [registered Docker IANA port 2375][iana-docker]
-
-A quick look at the VM processes (when you'll have ssh-ed inside the VM, see beelow) will confirm this configuration :
 {% highlight bash %}
-docker@boot2docker:~$ ps aux | grep 'docker -d' | grep -v grep
-  846 root     /usr/local/bin/docker -d -D -g /var/lib/docker -H unix:// -H tcp://0.0.0.0:2375
+$ export DOCKER_HOST=tcp://192.168.59.103:2375
+$ uname -a
+Darwin hackinthdedadou.bouyguesbox.fr 13.3.0 Darwin Kernel Version 13.3.0: Tue Jun  3 21:27:35 PDT 2014; root:xnu-2422.110.17~1/RELEASE_X86_64 x86_64
+$ docker run busybox:latest uname -a
+Linux 3d4f76f8cd6f 3.16.1-tinycore64 #1 SMP Fri Aug 22 06:40:10 UTC 2014 x86_64 GNU/Linux
+{% endhighlight %}
+
+What have you done ? 
+
+We're on Mac OS X (Darwin 64), which don't have Linux kernel with LXC or libcontainer capabilities).
+Well you've just launch a remote container INSIDE the boot2docker VM :
+
+<p align="center">
+  <img src="/assets/transparent_hypervisor.png" alt="transparent_hypervisor"/>
+</p>
+
+The idea behind that is that you run Docker where it can be run, using a local colient the manage it. This is the same as a browser querying a remote webserver, except that you're running containers.
+
+
+It aims at achieving the portability concern of Docker.
+
+They named it the __"transparent hypervisor"__ : You haven't configured anything except the location of the remote Docker, and you can run Docker easily, __focusing on what's inside__.
+
+
+Docker on Windows : poor fools !
+--------------------------------
+<p align="center">
+  <img src="/assets/fly_fools.gif" alt="fly fools"/>
+</p>
+
+In fact we got 3 use cases :
+
+* Direct run (on Linux) : docker client and dameon are in the same host, communication is thru a local unix socket (a file, generally /var/run/docker.sock).
+* Transparent hypervisor (on mac OS or Linux) : the docker client is ran by the local computer, Docker daemon is running remotly, communication is thru TCP socket (or remotely shared unix socket).
+* And you, poor fool, running your MS laptop because your company does not allow you to run *Nix. The only solution is to access the VM and to be in the 1st case :
+{% highlight bash %}boot2docker ssh{% endhighlight %}
+
+So, give a try a basic workflow of a nice github project with Docker stuff inside, on Windows :
+
+* Hey buddy, let's try this new git project, with my windows cmd line :
+{% highlight bat %}
+C:\workspace> git clone https://github.com/awesome_user/awesomeProject
+Cloning into 'awesomeProject'...
+remote: Counting objects: 42, done.
+remote: Compressing objects: 100% (42/42), done.
+remote: Total 42 (delta 42), reused 42 (delta 42)
+Receiving objects: 100% (42/42), 42.00 KiB | 42.00 KiB/s, done.
+Resolving deltas: 100% (42/42), done.
+Checking connectivity... done.
+C:\workspace>cd awesomeProject
+C:\workspace\awesomeProject>dir
+...
+Dockerfile
+script.sh
+...
+{% endhighlight %}
+* We got a Dockerfile over there ! Ain't nobody got time to install Linux : let's run my boo2docker :
+{% highlight bat %}
+C:\workspace\awesomeProject>boot2docker run
+...
+C:\workspace\awesomeProject>boot2docker ssh
+[A nice whale ASCII art]
+docker@boot2docker$ 
 {% endhighlight %}
 
 
 
 
-Windows : poor fools
---------------------
-
-
-One of the main problem today with boot2docker is the filesystem sharing function.
 
 [docker]:      http://docker.com
 [boot2docker]:   http://boot2docker.io
