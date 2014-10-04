@@ -35,24 +35,24 @@ gulp.task('livereload', function() {
 });
 
 gulp.task('less', function() {
-  gulp.src('src/less/*.less')
+  gulp.src('less/*.less')
     .pipe(less())
     .pipe(gulp.dest('.tmp/styles'));
 });
 
 gulp.task('coffee', function() {
-  gulp.src('src/coffee/*.coffee')
+  gulp.src('coffee/*.coffee')
     .pipe(coffee())
     .pipe(gulp.dest('.tmp/scripts'));
 });
 
 gulp.task('images', function() {
-  gulp.src('src/images/**/*')
+  gulp.src('images/**/*')
     .pipe(gulp.dest('.tmp/images'));
 });
 
 gulp.task('html', function() {
-  gulp.src('src/*.html')
+  gulp.src('*.html')
     .pipe(gulp.dest('.tmp'));
 });
 
@@ -62,15 +62,15 @@ gulp.task('ruban-components',function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('src/less/*.less', ['less']);
-  gulp.watch('src/coffee/*.coffee', ['coffee']);
-  gulp.watch('src/images/*', ['images']);
-  gulp.watch('src/*.html', ['html']);
+  gulp.watch('less/*.less', ['less']);
+  gulp.watch('coffee/*.coffee', ['coffee']);
+  gulp.watch('images/*', ['images']);
+  gulp.watch('*.html', ['html']);
 })
 
 gulp.task('dist', function() {
   gulp.src('.tmp/**')
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('../'));
 });
 
 
