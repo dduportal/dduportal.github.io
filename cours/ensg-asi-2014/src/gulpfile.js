@@ -7,6 +7,7 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   clean = require('gulp-clean'),
   coffee = require('gulp-coffee'),
+  w3cjs = require('gulp-w3cjs')
   rubanComponents = [
     'bower_components/normalize-css/normalize.css',
     'bower_components/font-awesome/css/font-awesome.min.css',
@@ -81,6 +82,11 @@ gulp.task('clean', function() {
     .pipe(clean({force: true}));
 });
 
+gulp.task('validate', function () {
+    gulp.src('*.html')
+        .pipe(w3cjs());
+});
+
 gulp.task('build', [
   'less', 
   'coffee', 
@@ -90,6 +96,7 @@ gulp.task('build', [
 ]);
 
 gulp.task('publish', [
+  'validate',
   'build',
   'dist'
 ]);
