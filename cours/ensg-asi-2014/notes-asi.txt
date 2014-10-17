@@ -1,0 +1,31 @@
+Enjeux :
+* info comme levier de modernité
+* Le temps de la réduction des coups (ROI)
+* La bulle internet : retour à la case départ
+* Le temps de la production de valeur
+
+A quoi sert un SI ? 
+* Mesurer => information
+* Agréger, traiter, transformer  => informatique 
+* Modéliser, cartographier => représenter
+* Remonter l'info, TdB => communiquer
+* Service de l'entreprise => levier décisionnel
+* Génération de valeur => stratégie interne, communication externe
+
+projets de SIs
+* Trois types :
+  > utilité (Tel Que Construits) -> réduction des coûts
+  > dépendance (Mieux Que Construits) -> nouvelle opportunités de retours rapides
+  > dévelopment (Autre Que Construits) -> stratégie de dévelopement, invest long terme, innovation
+
+
+Principes d'architecture des SIs
+* Rappel Archi logicielle (ingénierie du dévelopement) 
+  > UML => 4 + 1
+  > UP/RUP => 4 phases
+* Différences avec archi logicielle
+  > Concepts manipulé différents, différents niveau d'abstraction et de granularité, convergence méthodologique
+  > Uses case transverse à plusiuers applications (diff de logiciel ou le use case est app mono-centric)
+  > démarche top-down (processus -> code) en 2 cas -Données traitement | composants
+* Urbanisation du SI
+
