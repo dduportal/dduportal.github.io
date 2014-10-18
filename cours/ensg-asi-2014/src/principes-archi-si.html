@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Principes d'architecture des SIs - ENSG - 2014</title>
+  <title>Principes d'architectures des SIs - ENSG - 2014</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="components/normalize.css" />
   <link rel="stylesheet" href="components/font-awesome.min.css" />
@@ -13,14 +13,101 @@
 
 <body>
   <section id="types-SI" class="no-toc">
-    <h1>Principes d'architecture des SIs</h1>
+    <h1>Principes d'architectures</h1>
   </section>
 
   <section>
-    <h2></h2>
+    <h2>Architecture logicielle</h2>
+  </section>
+
+  <section>
+    <h3>UML</h3>
+    <p>4 + 1</p>
+  </section>
+
+  <section>
+    <h3>(R)UP</h3>
+    <p>4 phases</p>
+  </section>
+
+  <section>
+    <h3>Différences</h3>
+    <ul>
+      <li>Concepts manipulés</li>
+      <li>Granularité différentes</li>
+      <li>Uses cases multi-application</li>
+      <li>Approches asc. vs desc.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Convergences</h3>
+    <ul>
+      <li>Modélisation</li>
+      <li>Topologie des problèmes</li>
+      <li>Méthodologiques</li>
+    </ul>
   </section>
   
- 
+  <section>
+    <h2>Principes d'architectures techniques des SIs</h2>
+    <p><i>Bottom up !</i></p>
+    <p>Concept de <b>Tiers</b> ou <i>acteurs</i></p>
+  </section>
+
+   <!-- 
+Serveurs spécialisés (serveur de fichier, de messagerie, de données, …)
+Le rôle d'un serveur est de centraliser l'information
+Tier = couche (logiciel ou applicatif)
+Pour communiquer un client et un serveur utilise un "middleware" -->
+  
+  <section>
+    <h3>1 tiers</h3>
+    <p class="center">
+      <i>Pas très utile...</i>
+    </p>
+    <p class="center">
+      <img src="images/single_cli.png" alt="single_cli" />
+    </p>
+  </section>
+
+  <section>
+    <h3>1 tiers</h3>
+    <p>Un <b>Tiers</b> est une "couche" du système <br/>
+      <i>(applicatif ou logiciel)</i></p>
+    <p>Il est toujours <b>spécialisé</b></p>
+  </section>
+
+  <section>
+    <h3>2 tiers</h3>
+    <p class="center">
+      <i>Client / Serveur</i>
+    </p>
+    <p class="center">
+      <img src="images/single_cli_srv.png" alt="single_cli_srv" height="300em" />
+    </p>
+  </section>
+
+  <section>
+    <h3>2 tiers - les règles :</h3>
+    <ul>
+      <li>Relation maître (client) / esclave (serveur)</li>
+      <li>Même protocole de communication (ex: HTTP)</li>
+      <li></li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Récapitulatif</h3>
+    <ul>
+      <li>Client / Serveur</li>
+      <li>3 tiers</li>
+      <li>N tiers</li>
+      <li>Distribué</li>
+      <li>Orienté services</li>
+    </ul>
+  </section>
+
   <section>
     <h3><a href="../#/principes-archi-si-link">Retour</a></h3>
   </section>
