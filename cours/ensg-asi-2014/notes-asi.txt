@@ -6,7 +6,9 @@ Principes d'architecture des SIs
 * Différences avec archi logicielle
   > Concepts manipulé différents, différents niveau d'abstraction et de granularité, convergence méthodologique
   > Uses case transverse à plusiuers applications (diff de logiciel ou le use case est app mono-centric)
+
   > démarche top-down (processus -> code) en 2 cas -Données traitement | composants
+  
 * Principes d'architectures techniques :
   > Le client / serveur + Le middleware
   > Le 3 tiers (présentation / métier / données)
@@ -33,13 +35,7 @@ Keywords à ordonner :
 	> Conforme
 	> Fiable
 	> Adaptable si besoin
-* Intervenants :
-	> MOA (users) / MOE (presta)
-	> Direction SI
-	> Devs (etude / dev)
-	> Ops (prod + exploit, niveau 2)
-	> Support (assistance, niveau 1, etc.)
-	> Experts (R&D, niveau 3)
+
 * Cycles :
 	> Cycle de vie + cycle de dév (analyse, conception, réa, tests, exploit, maintenance)
 	> Cycle chute d'eau
