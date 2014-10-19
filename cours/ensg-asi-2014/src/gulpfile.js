@@ -17,9 +17,11 @@ var gulp = require('gulp'),
     'bower_components/keymaster/keymaster.js',
     'bower_components/hammerjs/hammer.min.js',
     'bower_components/hammerjs/hammer.min.map',
-    'bower_components/highlightjs/highlight.pack.js',
-    'bower_components/font-awesome/fonts/fontawesome-*'
+    'bower_components/highlightjs/highlight.pack.js'
   ];
+  rubanFonts = [
+    'bower_components/font-awesome/fonts/*'
+  ]
 
 
 gulp.task('webserver', function() {
@@ -62,6 +64,11 @@ gulp.task('ruban-components',function() {
     .pipe(gulp.dest('.tmp/components'));
 });
 
+gulp.task('ruban-fonts', function() {
+  gulp.src(rubanFonts)
+    .pipe(gulp.dest('.tmp/fonts'));
+});
+
 gulp.task('watch', function() {
   gulp.watch('less/*.less', ['less']);
   gulp.watch('coffee/*.coffee', ['coffee']);
@@ -91,6 +98,7 @@ gulp.task('build', [
   'less', 
   'coffee', 
   'ruban-components',
+  'ruban-fonts',
   'images',
   'html'
 ]);
