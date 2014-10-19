@@ -50,8 +50,7 @@
   </section>
   
   <section>
-    <h2>Principes d'architectures techniques des SIs</h2>
-    <p><i>Bottom up !</i></p>
+    <h2>Principes de conception</h2>
     <p>Concept de <b>Tiers</b> ou <i>acteurs</i></p>
   </section>
   
@@ -69,93 +68,141 @@
     <h3>1 tiers</h3>
     <p>Un <b>Tiers</b> est une "couche" du système <br/>
       <i>(applicatif ou logiciel)</i></p>
-    <p>Il est toujours <b>spécialisé</b></p>
-  </section>
+      <p>Il est toujours <b>spécialisé</b></p>
+    </section>
 
-  <section>
-    <h3>2 tiers</h3>
-    <p class="center">
-      <i>Client / Serveur</i>
-    </p>
-    <p class="center">
-      <img src="images/single_cli_srv.png" alt="single_cli_srv" height="300" />
-    </p>
-  </section>
+    <section>
+      <h3 class="center">Client / Serveur - 1/2</h3>
+      <p class="center">
+        <img src="images/single_cli_srv.png" alt="single_cli_srv" height="300" />
+      </p>
+    </section>
 
-  <section>
-    <h3>2 tiers - les règles :</h3>
-    <ul>
-      <li>Relation maître (client) / esclave (serveur)</li>
-      <li>Même protocole de communication (ex: HTTP)</li>
-      <li>Serveur : <b>centralise</b> l'information</li>
-      <li>Communication par le biais d'un <b>middleware</b></li>
-    </ul>
-  </section>
+    <section>
+      <h3>Client / serveur - 2/2</h3>
+      <p><b><i><u>Les règles :</u></i></b></p>
+      <ul>
+        <li>Relation maître (client) / esclave (serveur)</li>
+        <li>Même protocole de communication (ex: HTTP)</li>
+        <li>Serveur : <b>centralise</b> l'information</li>
+        <li>Communication par le biais d'un <b>middleware</b></li>
+      </ul>
+    </section>
 
-  <section>
-    <h3>Le middleware</h3>
-    <p>Littéralement un <i>intergiciel</i> : ensemble de composants logiciels qui assurent l'interface de communication aux données et les appels éventuels aux traitements</p>
-  </section>
+    <section>
+      <h3>Le middleware - 1/4</h3>
+      <p>Littéralement un <b>intergiciel</b> :</p>
+      <p>Ensemble de composants logiciels qui assurent l'interface de communication aux données</p>
+    </section>
 
-  <section>
-    <h3>Le middleware </h3>
-    <p>Les niveaux d'abstractions et d'encapsulation de ces composants déterminents pour l'ensemble :</p>
-    <ul>
-      <li>Le coût de réalisation</li>
-      <li>La robustesse</li>
-      <li>L'évolutivité</li>
-      <li>La facilité de mise en oeuvre</li>
-    </ul>
-  </section>
+    <section>
+      <h3>Le middleware - 2/4</h3>
+      <p class="center">
+        <img src="images/middleware.png" alt="middleware" height="400" />
+      </p>
+    </section>
 
-  <section>
-    <h3>Le middleware </h3>
-    <p>Trois grandes catégories de middleware :</p>
-    <ul>
-      <li>Message oriented Middleware (MoM)</li>
-      <li>Objects Request Broker (ORB)</li>
-      <li>Transactional monitors ("RPCs")</li>
-    </ul>
-  </section>
+    <section>
+      <h3>Souvenir ?</h3>
+      <p class="center">
+        <img src="images/osi.png" alt="osi" height="350" />
+      </p>
+      <p class="center">OSI</p>
+    </section>
 
-  <section>
-    <h3>Le middleware </h3>
-    <p class="center">
-      <img src="images/middleware.png" alt="middleware" height="400" />
-    </p>
-  </section>
+    <section>
+      <h3>Le middleware - 3/4</h3>
+      <p>Trois grandes catégories de middleware :</p>
+      <ul>
+        <li><i class="fa fa-envelope-o"></i> - Message oriented Middleware (MoM)</li>
+        <li><i class="fa fa-sitemap"></i> - Objects Request Broker (ORB)</li>
+        <li><i class="fa fa-tasks"></i> - Transactional monitors<br />("Remote Procedure Calls")</li>
+      </ul>
+    </section>
 
-  <section>
-    <h3>OSI : Souvenir du cours de réseau ?</h3>
-    <p class="center">
-      <img src="images/osi.png" alt="osi" height="400" />
-    </p>
-  </section>
+    <section>
+      <h3>Le middleware - 4/4</h3>
+      <p>Les niveaux d'abstractions et d'encapsulation de ces composants déterminent :</p>
+      <ul>
+        <li><i class="fa fa-dollar"></i> - Le coût de réalisation</li>
+        <li><small><small><i class="fa fa-gavel"></i></small></small> - La robustesse</li>
+        <li><small><small><i class="fa fa-line-chart"></i></small></small> - L'évolutivité</li>
+        <li><small><small><i class="fa fa-check-square-o"></i></small></small> - La facilité de mise en oeuvre</li>
+      </ul>
+    </section>
 
-  <section>
-    <h3>Récapitulatif</h3>
-    <ul>
-      <li>Client / Serveur</li>
-      <li>3 tiers</li>
-      <li>N tiers</li>
-      <li>Distribué</li>
-      <li>Orienté services</li>
-    </ul>
-  </section>
+    <section>
+      <h3>Architecture 2 tiers - 1/4</h3>
+      <p>Ce sont des architectures les plus courantes pour du client/serveur.</p>
+      <p><i>Il en existe 2 catégories :</i></p>
+      <ul>
+        <li>Type 1 : traitement assuré côté client</li>
+        <li>Type 2 : traitement assuré côté serveur</li>
+      </ul>
+    </section>
 
-  <section>
-    <h3><a href="../#/principes-archi-si-link">Retour</a></h3>
-  </section>
+    <section>
+      <h3>Architecture 2 tiers - 2/4</h3>
+      <p class="center">
+        <img src="images/arch_2_tiers_2_types.png" alt="arch_2_tiers_2_types" height="350"/>
+      </p>
+    </section>
 
-  <script src="components/jquery.min.js"></script>
-  <script src="components/keymaster.js"></script>
-  <script src="components/hammer.min.js"></script>
-  <script src="components/highlight.pack.js"></script>
-  <script src="scripts/ruban.js"></script>
-  <script>
+    <section>
+      <h3>Architecture 2 tiers - 3/4</h3>
+      <p class="center">Problème : <b>couplage fort</b></p>
+      <p><small><i>Si je veux changer le middleware ?</i></small></p>
+    </section>
+
+    <section>
+      <h3>Architecture 2 tiers - 4/4</h3>
+      <p><i>c'était pas "mieux avant" :</i></p>
+      <p class="center">
+        <img src="images/10-megabytes-hard-disk.jpg" alt="10-megabytes-hard-disk" width="300" />
+      </p>
+    </section>
+
+    <section>
+      <h3>1, 2, 3 !</h3>
+      <p class="center">
+        <img src="images/keep-calm-and-level-1up.png" alt="keep-calm-and-level-1up" width="300" />
+      </p>
+    </section>
+
+    <section>
+      <h3>Architecture 3 tiers</h3>
+      <p>Découpage à 3 niveaux, correspondant aux us des utilisateurs :</p>
+      <ul>
+        <li>Couche <b>présentation</b></li>
+        <li>Couche <b>métier</b></li>
+        <li>Couche <b>accès aux données</b></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Récapitulatif</h3>
+      <ul>
+        <li>Client / Serveur</li>
+        <li>3 tiers</li>
+        <li>N tiers</li>
+        <li>Distribué</li>
+        <li>Orienté services</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3><a href="../#/principes-archi-si-link">Retour</a></h3>
+    </section>
+
+    <script src="components/jquery.min.js"></script>
+    <script src="components/keymaster.js"></script>
+    <script src="components/hammer.min.js"></script>
+    <script src="components/highlight.pack.js"></script>
+    <script src="scripts/ruban.js"></script>
+    <script>
     var ruban = new Ruban({
       pagination: true
     });
-  </script>
-</body>
-</html>
+    </script>
+  </body>
+  </html>
