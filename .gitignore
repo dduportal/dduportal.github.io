@@ -5,3 +5,5 @@ bower_components/
 Gemfile.lock
 .tmp
 *.log
+~$*
+*.tmp
