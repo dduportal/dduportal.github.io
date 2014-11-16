@@ -67,11 +67,36 @@
   </section>
   <section>
     <h3>Virtualisation du stockage :</h3>
-    <p></p>
+    <ul>
+      <li>> Extension de la notion de "partition" de disque dur.</li>
+      <li>> Généralisation sur des agrégations réparties de stockage.</li>
+      <li>> Se base sur une application de gestion de volumes <u>logiques</u>.</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Virtualisation du stockage :</h3>
+    <ul>
+      <li>> Ajout de disque/suppression de disque sans coupure</li>
+      <li>> Ré-allocation dynamique de volume</li>
+      <li>> Mix de types (SSD/HD), de marques, de modèles de disques. </li>
+    </ul>
+  </section>
+  <section>
+    <h3>Virtualisation du stockage :</h3>
+    <p class="center">
+      <img src="images/virtu_storage.png" alt="virtu_storage" height="400" />
+    </p>
   </section>
   <section>
     <h3>Virtualisation des serveurs :</h3>
-    <p></p>
+    <p>Masquer les ressources du serveur physique (<b>hôte</b>), et les diviser dans des entités virtuelles.
+      <br /> Ces entités, appellées "<b>invités</b>" sont des serveurs complets virtuels.</p>
+  </section>
+  <section>
+    <h3>Virtualisation des serveurs :</h3>
+    <p class="center">
+      <img src="images/virtu_srv.png" alt="virtu_srv" height="400" />
+    </p>
   </section>
 
   <section>
@@ -83,42 +108,92 @@
     </ul>
   </section>
   <section>
-    <h3>Critère d'équivalence :</h3>
-    <p></p>
+    <h3>Critères de virtualisation</h3>
+    <p><u>Equivalence :</u></p>
+    <p>Un programme doit se comporter de la même manière en "natif" comme en "virtualisé".</p>
   </section>
   <section>
-    <h3>Critère d'efficacité :</h3>
-    <p></p>
+    <h3>Critères de virtualisation</h3>
+    <p><u>Efficacité :</u></p>
+    <p>Un ensemble majoritaire des instructions de calculs virtualisées doivent être exécutées nativement par l'hôte.</p>
   </section>
   <section>
-    <h3>Critère de contrôle des ressources :</h3>
-    <p></p>
+    <h3>Critères de virtualisation</h3>
+    <p><u>Contrôle des ressources :</u></p>
+    <p>L'hôte a le contrôle total des ressources. Un invité ne peut accéder aux ressources sans passer par l'hyperviseur de virtualisation.</p>
   </section>
 
   <section>
     <h3>Avantages de la virtualisation</h3>
-    <!-- TODO -->
+    <ul>
+      <li>> Optimisation de l'utilisation des ressources (Ex: résultats BAC)</li>
+      <li>> Réduction des dépenses énergétiques</li>
+      <li>> Meilleure reprise sur erreur (moins dépendant des pannes physiques)</li>
+      <li>> Flexibilité des applications</li>
+    </ul>
   </section>
   <section>
     <h3>Inconvénients de la virtualisation</h3>
-    <!-- TODO -->
+    <ul>
+      <li>> Création de SPOFs</li>
+      <li>> Complexité analytique accrue</li>
+      <li>> Dégradation de performances possible (I/O)</li>
+      <li>> Pas de standard !</li>
+    </ul>
   </section>
   <section>
     <h3>Types de virtualisations</h3>
     <ul>
-      <li>Machines virtuelles</li>
-      <li>Para-virtualisation</li>
-      <li>Containeurs</li>
+      <li>Machines virtuelles (type 1 / type 2) : VMWare, VirtualBox</li>
+      <li>Para-virtualisation : Xen, HyperV</li>
+      <li>Containeurs : LXC, Docker, Jails</li>
     </ul>
   </section>
   <section>
-    <h3>Un peu de pratique : migrations</h3>
+    <h3>Types de virtualisations</h3>
+    <p><u>Hyperviseur (VMs) de type 1</u></p>
+    <p class="center">
+      <img src="images/virtu_type_1.png" alt"virtu_type_1" height="300" />
+    </p>
+  </section>
+  <section>
+    <h3>Types de virtualisations</h3>
+    <p><u>Hyperviseur (VMs) de type 2</u></p>
+    <p class="center">
+      <img src="images/virtu_type_2.png" alt"virtu_type_2" height="300" />
+    </p>
+  </section>
+  <section>
+    <h3>Types de virtualisations</h3>
+    <p><u>Para-virtualisation</u></p>
     <ul>
-      <li>P2V</li>
-      <li>V2V</li>
-      <li>V2P</li>
+      <li>> Meilleures performances</li>
+      <li>> Mais OS modifiés : compatibilité faible</li>
     </ul>
   </section>
+  <section>
+    <h3>Types de virtualisations</h3>
+    <p><u>Para-virtualisation</u></p>
+    <p class="center">
+      <img src="images/paravirtu.png" alt"paravirtu" height="300" />
+    </p>
+  </section>
+  <section>
+    <h3>Types de virtualisations</h3>
+    <p><u>Containeurs</u></p>
+    <ul>
+      <li>> Performances quasi-natives</li>
+      <li>> Mais OS homogènes + unicité App dans containeur</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Types de virtualisations</h3>
+    <p><u>Containeurs</u></p>
+    <p class="center">
+      <img src="images/containers.png" alt"containers" height="300" />
+    </p>
+  </section>
+
   <section>
     <h3>Un peu de pratique : CPU</h3>
     <ul>
