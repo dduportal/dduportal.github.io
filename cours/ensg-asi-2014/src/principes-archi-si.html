@@ -258,6 +258,85 @@
       </p>
     </section>
 
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Approche par composants :</u></p>
+      <ul>
+        <li>> Notion de "Réusabilité" généralisée au SI.</li>
+        <li>> On distribue la donnée <b>ET</b> les traitements</li>
+        <li>> L'unité de découpage se rapproche du métier</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Ex. de distribution de données :</u></p>
+      <ul>
+        <li>Component Object Model (COM):  </li>
+        <li>> Microsoft - 90s - pour ActiveX</li>
+        <li>> Indépendant des languages (VB, C, .NET)</li>
+        <li>> Encapsulation dans des objets pour transport</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Ex. de distribution de données :</u></p>
+      <ul>
+        <li>Simple Object Access Protocol <b>v1.0</b> (SOAP):  </li>
+        <li>> Microsoft, IBM - 2000s - orienté HTTP</li>
+        <li>> Indépendant des languages...</li>
+        <li>> Description d'un modèle de données + messages pour transport</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Ex. de distribution de traitements :</u></p>
+      <ul>
+        <li>Common Object Request Broker Architecture (CORBA):  </li>
+        <li>> IBM, Sun, Oracle - 90s - orienté <b>OO</b></li>
+        <li>> Indépendant des languages (Java, C++, .NET...)</li>
+        <li>> Composants distants accédé par <b>ORB</b></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Ex. de distribution de traitements :</u></p>
+      <ul>
+        <li>Remote Method Invocation (RMI) : </li>
+        <li>Sun - 2000s - Java Application servers</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p>RMI : exemple de code serveur</p>
+      <pre><code>public class HelloImpl extends UnicastRemoteObject implements Hello { 
+  public HelloImpl() {}
+
+  public String sayHello() { return "Hello world!"; }
+
+  public static void main(String args[]) { 
+    HelloImpl obj = new HelloImpl(); 
+    Naming.rebind("HelloServer", obj); 
+  } 
+}</code></pre>
+    </section>
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p>RMI : exemple de code client</p>
+      <pre><code>public class HelloClient { 
+  public static void main(String arg[]) { 
+    String message = "blank";
+
+    Hello obj = (Hello) Naming.lookup( "rmi://server.address.org:1234/HelloServer");
+    
+    System.out.prinntln( obj.sayHello() ); 
+  }
+}</code></pre>
+    </section>
+
     <section id="ha">
       <h3>Architectures distribuées</h3>
       <p>Pourquoi distribuer ?</p>
@@ -296,6 +375,9 @@
         la distribution au sens "large" du terme
       </p>
     </section>
+
+    
+
 
     <section>
       <h3>Architectures Orientées Services</h3>
