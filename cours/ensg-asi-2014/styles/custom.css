@@ -1,3 +1,26 @@
+section h2,
+h2 {
+  padding-top: 0.2em;
+  margin-top: 0;
+}
+section table {
+  margin: auto;
+  font-size: 0.6em;
+  border-collapse: collapse;
+  text-align: center;
+}
+section caption {
+  padding: 0.2em;
+}
+section td,
+section th {
+  border: 1px solid black;
+  padding: 0.2em;
+}
+section th {
+  background: #434343;
+  color: #EEE;
+}
 .arrow_box {
   position: relative;
   background: #88b7d5;
@@ -43,4 +66,86 @@
 }
 .little {
   font-size: 0.2em;
+}
+.breadcrumb {
+  list-style: none;
+  overflow: hidden;
+  font: 46px Helvetica, Arial, Sans-Serif;
+}
+.breadcrumb li {
+  float: left;
+}
+.breadcrumb li a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 0 10px 65px;
+  background: brown;
+  /* fallback color */
+  background: #a5630d;
+  position: relative;
+  display: block;
+  float: left;
+}
+.breadcrumb li a:after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid #a5630d;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  left: 100%;
+  z-index: 2;
+}
+.breadcrumb li a:before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 1;
+}
+.breadcrumb li:first-child a {
+  padding-left: 10px;
+}
+.breadcrumb li:nth-child(2) a {
+  background: #d48011;
+}
+.breadcrumb li:nth-child(2) a:after {
+  border-left-color: #d48011;
+}
+.breadcrumb li:nth-child(3) a {
+  background: #ee992b;
+}
+.breadcrumb li:nth-child(3) a:after {
+  border-left-color: #ee992b;
+}
+.breadcrumb li:nth-child(4) a {
+  background: #f2b05a;
+}
+.breadcrumb li:nth-child(4) a:after {
+  border-left-color: #f2b05a;
+}
+.breadcrumb li:nth-child(5) a {
+  background: #f5c689;
+}
+.breadcrumb li:nth-child(5) a:after {
+  border-left-color: #f5c689;
+}
+.breadcrumb li a:hover {
+  background: #76470a;
+}
+.breadcrumb li a:hover:after {
+  border-left-color: #76470a !important;
 }

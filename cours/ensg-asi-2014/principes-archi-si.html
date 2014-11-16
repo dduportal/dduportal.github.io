@@ -179,7 +179,10 @@
 
     <section>
       <h3>Architecture 2 tiers</h3>
-      <p><i class="fa fa-wrench"></i><i> - Un exemple par la pratique : </i><br /><a href="https://github.com/dduportal/ensg-asi-2014/tree/master/simple-db">simple-db</a></p>
+      <p><i class="fa fa-wrench"></i><i> - Un exemple par la pratique : </i><a href="https://github.com/dduportal/ensg-asi-2014/tree/master/simple-db">simple-db</a></p>
+      <p class="center">
+        <img src="images/postgresql.png" alt="postgresql" />
+      </p>
     </section>
 
     <section>
@@ -236,9 +239,11 @@
 
     <section>
       <h3>Architecture N tiers</h3>
-      <i class="fa fa-wrench"></i><i> - Un exemple par la pratique : </i><a href="https://github.com/dduportal/ensg-asi-2014/tree/master/simple-dab">SimpleDAB</a></p>
+      <p>
+        <i class="fa fa-wrench"></i><i> - Un exemple par la pratique : </i><a href="https://github.com/dduportal/ensg-asi-2014/tree/master/geoserver">Géoserveur</a>
+      </p>
       <p class="center">
-        <img src="images/dab.jpg" alt="dab" height="300" />
+        <img src="images/geoserver.png" alt="geoserver" />
       </p>
     </section>
 
@@ -255,6 +260,183 @@
       <h3>Architectures distribuées</h3>
       <p class="center">
         <img src="images/arch_distribuee.png" alt="arch_distribuee" height="400" />
+      </p>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Approche par composants :</u></p>
+      <ul>
+        <li>> Notion de "Réusabilité" généralisée au SI.</li>
+        <li>> On distribue la donnée <b>ET</b> les traitements</li>
+        <li>> L'unité de découpage se rapproche du métier</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Ex. de distribution de données :</u></p>
+      <ul>
+        <li>Component Object Model (COM):  </li>
+        <li>> Microsoft - 90s - pour ActiveX</li>
+        <li>> Indépendant des languages (VB, C, .NET)</li>
+        <li>> Encapsulation dans des objets pour transport</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Ex. de distribution de données :</u></p>
+      <ul>
+        <li>Simple Object Access Protocol <b>v1.0</b> (SOAP):  </li>
+        <li>> Microsoft, IBM - 2000s - orienté HTTP</li>
+        <li>> Indépendant des languages...</li>
+        <li>> Description d'un modèle de données + messages pour transport</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Ex. de distribution de traitements :</u></p>
+      <ul>
+        <li>Common Object Request Broker Architecture (CORBA):  </li>
+        <li>> IBM, Sun, Oracle - 90s - orienté <b>OO</b></li>
+        <li>> Indépendant des languages (Java, C++, .NET...)</li>
+        <li>> Composants distants accédé par <b>ORB</b></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p><u>Ex. de distribution de traitements :</u></p>
+      <ul>
+        <li>Remote Method Invocation (RMI) : </li>
+        <li>Sun - 2000s - Java Application servers</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p>RMI : exemple de code serveur</p>
+      <pre><code>public class HelloImpl extends UnicastRemoteObject implements Hello { 
+        public HelloImpl() {}
+
+        public String sayHello() { return "Hello world!"; }
+
+        public static void main(String args[]) { 
+        HelloImpl obj = new HelloImpl(); 
+        Naming.rebind("HelloServer", obj); 
+      } 
+    }</code></pre>
+  </section>
+  <section>
+    <h3>Architectures distribuées</h3>
+    <p>RMI : exemple de code client</p>
+    <pre><code>public class HelloClient { 
+      public static void main(String arg[]) { 
+      String message = "blank";
+
+      Hello obj = (Hello) Naming.lookup( "rmi://server.address.org:1234/HelloServer");
+
+      System.out.prinntln( obj.sayHello() ); 
+    }
+  }</code></pre>
+</section>
+
+<section>
+  <h3>Problématiques de la distribution</h3>
+  <p><u>Cohérence de l'information</u> :</p>
+  <p class="center">
+    <img src="images/tom_jerry_size.jpg" alt="tom_jerry_size" height="250" />
+    <br />
+    La valeur sur mon écran est elle réelle ?
+  </p>
+</section>
+
+<section>
+  <h3>Problématiques de la distribution</h3>
+  <p><u>Concurrence des actions :</u></p>
+  <p class="center">
+    <img src="images/bouchon.jpg" alt="bouchon" height="250" />
+    <br />
+    Un problème plus large que l'IT...
+  </p>
+</section>
+
+<section>
+  <h3>Problématiques de la distribution</h3>
+  <p><u>Complexité :</u></p>
+  <p class="center">
+    <img src="images/web_of_data.jpg" alt="web_of_data" height="250" />
+    <br />
+    la distribution au sens "large" du terme
+  </p>
+</section>
+
+<section>
+  <h3>Problématiques de la distribution</h3>
+  <p><u>Exemple des SGBDR - <b>ACID</b></u> :</p>
+  <ul>
+    <li>Atomicité</li>
+    <li>Cohérence</li>
+    <li>Isolation</li>
+    <li>Durabilité</li>
+  </ul>
+</section>
+
+<section id="ha">
+  <h3>Architectures distribuées</h3>
+  <p>Pourquoi distribuer ?</p>
+  <ul>
+    <li>> <a href="./ha.html">Notion de disponibilité</a></li>
+    <li>> <a href="./repartition-ressources.html">Notion de répartition des ressources</a></li>
+  </ul>
+</section>
+
+<section>
+  <h3>Architectures distribuées</h3>
+  <p class="center">Distribution d'une application<br />==<br />mise à l'échelle (scalabilité)</p>
+</section>
+
+<section>
+  <h3>Exemple de systèmes distribués</h3>
+  <p><u>Stockage dans le réseau</u></p>
+  <ul>
+    <li>NAS : NFS / SMB</li>
+    <li>SANs</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Exemple de systèmes distribués</h3>
+  <p><u>Calcul parallèle en "Map-Reduce"</u></p>
+  <ul>
+    <li>Google Reasearch - http://research.google.com/archive/mapreduce.html</li>
+    <li>BIG DATA</li>
+  </ul>
+      <!-- <p class="center">
+        <img src="images/map_reduce_for_dummies.png">
+      </p> -->
+    </section>
+
+    <section>
+      <h3>Exemple de systèmes distribués</h3>
+      <p><u>Application de recherche (Géocodeur, Google...)</u></p>
+      <ul>
+        <li>> Index de recherche sur la donnée</li>
+        <li>> Structure de données type "tableau clef->valeur"</li>
+        <li>> Répartir par première lettre sur 4 serveurs différents : partition ?</li>
+        <li>> NoSQL vs. SGBDR</li>
+      </ul>
+      <!-- TODO -->
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p>
+        <i class="fa fa-wrench"></i><i> - encore de la pratique : </i><a href="https://github.com/dduportal/ensg-asi-2014/tree/master/cluster-geoserver">Cluster de Géoserveur </a>
+      </p>
+      <p class="center">
+        <img src="images/geoserver_FS_cluster.png" alt="geoserver_FS_cluster" />
       </p>
     </section>
 
