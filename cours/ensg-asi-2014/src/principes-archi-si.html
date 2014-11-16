@@ -179,7 +179,10 @@
 
     <section>
       <h3>Architecture 2 tiers</h3>
-      <p><i class="fa fa-wrench"></i><i> - Un exemple par la pratique : </i><br /><a href="https://github.com/dduportal/ensg-asi-2014/tree/master/simple-db">simple-db</a></p>
+      <p><i class="fa fa-wrench"></i><i> - Un exemple par la pratique : </i><a href="https://github.com/dduportal/ensg-asi-2014/tree/master/simple-db">simple-db</a></p>
+      <p class="center">
+        <img src="images/postgresql.png" alt="postgresql" />
+      </p>
     </section>
 
     <section>
@@ -238,7 +241,7 @@
       <h3>Architecture N tiers</h3>
       <i class="fa fa-wrench"></i><i> - Un exemple par la pratique : </i><a href="https://github.com/dduportal/ensg-asi-2014/tree/master/geoserver">Géoserveur</a></p>
       <p class="center">
-        <img src="images/dab.jpg" alt="dab" height="300" />
+        <img src="images/geoserver.png" alt="geoserver" />
       </p>
     </section>
 
@@ -331,19 +334,10 @@
     String message = "blank";
 
     Hello obj = (Hello) Naming.lookup( "rmi://server.address.org:1234/HelloServer");
-    
+
     System.out.prinntln( obj.sayHello() ); 
   }
 }</code></pre>
-    </section>
-
-    <section id="ha">
-      <h3>Architectures distribuées</h3>
-      <p>Pourquoi distribuer ?</p>
-      <ul>
-        <li>>> <a href="./ha.html">Notion de disponibilité</a></li>
-        <li>>> <a href="./repartition-ressources.html">Notion de répartition des ressources</a></li>
-      </p>
     </section>
 
     <section>
@@ -376,8 +370,71 @@
       </p>
     </section>
 
-    
+    <section>
+      <h3>Problématiques de la distribution</h3>
+      <p><u>Exemple des SGBDR - <b>ACID</b></u> :</p>
+      <ul>
+        <li>Atomicité</li>
+        <li>Cohérence</li>
+        <li>Isolation</li>
+        <li>Durabilité</li>
+      </ul>
+    </section>
 
+     <section id="ha">
+      <h3>Architectures distribuées</h3>
+      <p>Pourquoi distribuer ?</p>
+      <ul>
+        <li>>> <a href="./ha.html">Notion de disponibilité</a></li>
+        <li>>> <a href="./repartition-ressources.html">Notion de répartition des ressources</a></li>
+      </p>
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <p class="center">Distribution d'une application<br />==<br />mise à l'échelle (scalabilité)</p>
+    </section>
+    
+    <section>
+      <h3>Exemple de systèmes distribués</h3>
+      <p><u>Stockage dans le réseau</u></p>
+      <ul>
+        <li>NAS : NFS / SMB</li>
+        <li>SANs</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Exemple de systèmes distribués</h3>
+      <p><u>Calcul parallèle en "Map-Reduce"</u></p>
+      <ul>
+        <li>Google Reasearch - http://research.google.com/archive/mapreduce.html</li>
+        <li>BIG DATA</li>
+      </ul>
+      <!-- <p class="center">
+        <img src="images/map_reduce_for_dummies.png">
+      </p> -->
+    </section>
+
+    <section>
+      <h3>Exemple de systèmes distribués</h3>
+      <p><u>Application de recherche (Géocodeur, Google...)</u></p>
+      <ul>
+        <li>> Index de recherche sur la donnée</li>
+        <li>> Structure de données type "tableau clef->valeur"</li>
+        <li>> Répartir par première lettre sur 4 serveurs différents : partition ?</li>
+        <li>> NoSQL vs. SGBDR</li>
+      </ul>
+      <!-- TODO -->
+    </section>
+
+    <section>
+      <h3>Architectures distribuées</h3>
+      <i class="fa fa-wrench"></i><i> - encore de la pratique : </i><a href="https://github.com/dduportal/ensg-asi-2014/tree/master/cluster-geoserver">Cluster de Géoserveur </a></p>
+      <p class="center">
+        <img src="images/geoserver_FS_cluster.png" alt="geoserver_FS_cluster" />
+      </p>
+    </section>
 
     <section>
       <h3>Architectures Orientées Services</h3>
