@@ -452,7 +452,14 @@
       <h3>Architectures Orientées Services</h3>
       <p class="center">Composants ?</p>
       <p class="center">
-        <img src="images/spaghetti.jpg" alt="spaghetti" height="200" />
+        <img src="images/spaghetti.jpg" alt="spaghetti" height="250" />
+      </p>
+    </section>
+    <section>
+      <h3>Architectures Orientées Services</h3>
+      <p class="center">Composants ?</p>
+      <p class="center">
+        <img src="images/archi_composants.png" alt="archi_composants" height="300" />
       </p>
     </section>
     <section>
@@ -484,57 +491,55 @@
     </section>
     <section>
       <h3>Architectures Orientées Services</h3>
-      <p class="center">Intégration des services :<b>EAI</b></p>
-      <p>Enterprise Application Integration</p>
+      <p><b>E</b>nterprise <b>A</b>pplication <b>I</b>ntegration</p>
       <ul>
         <li>> Chaque service a des <b>O</b>bjets <b>M</b>étiers</li>
         <li>> L'EAI : plateforme centralisée et méta-service</li>
-        <li>> L'EAI a des Objets Métiers Spécifiques</li>
+        <li>> L'EAI a des  <b>O</b>bjets <b>M</b>étiers <b>S</b>pécifiques</li>
         <li>> L'EAI connaît les services => pas d'annuaire ext.</li>
-        <li>> Connecteur d'interface : conversion OM -> OMS</li>
+        <li>> Connecteur : conversion OM -> OMS</li>
       </ul>
     </section>
     <section>
       <h3>Architectures Orientées Services</h3>
-      <p class="center">Intégration des services :<b>EAI</b>
-        <img src="images/eai.png" alt="eai" height="350" />
+      <p><b>E</b>nterprise <b>A</b>pplication <b>I</b>ntegration</p>
+      <p class="center">
+        <img src="images/eai.png" alt="eai" height="300" />
       </p>
     </section>
     <section>
       <h3>Architectures Orientées Services</h3>
-      <p class="center">Intégration des services :<b>EAI</b></p>
-      <p>Enterprise Application Integration</p>
+      <p><b>E</b>nterprise <b>A</b>pplication <b>I</b>ntegration</p>
       <ul>
-        <li>Interfaces : réusabilité et intégration</li>
-        <li>Coût initial élevé mais rentabilisation</li>
-        <li>Centralisation : métier + mais SPOF !</li>
+        <li><i class="fa fa-check"></i>Interfaces : réusabilité et intégration</li>
+        <li><i class="fa fa-close"></i>Coût initial élevé mais <i class="fa fa-check"></i>rentabilisation</li>
+        <li><i class="fa fa-check"></i>Centralisation : métier + mais <i class="fa fa-close"></i>SPOF !</li>
       </ul>
     </section>
     <section>
       <h3>Architectures Orientées Services</h3>
-      <p class="center">Intégration des services :<b>ESB</b></p>
-      <p>Enterprise Service Bus</p>
+      <p><b>E</b>nterprise <b>S</b>ervice <b>B</b>us</p>
       <ul>
-        <li>Découverte dynamique des services</li>
-        <li>Middleware distribué</li>
-        <li>Pas d'OMS : un service du SI doit faire les mappings</li>
-        <li>Orienté MoM</li>
+        <li>> Découverte dynamique des services</li>
+        <li>> Middleware distribué</li>
+        <li>> Pas d'OMS : un service du SI doit faire les mappings</li>
+        <li>> Orienté MoM</li>
       </ul>
     </section>
     <section>
       <h3>Architectures Orientées Services</h3>
-      <p class="center">Intégration des services :<b>EAI</b>
-        <img src="images/esb.png" alt="esb" height="350" />
+      <p><b>E</b>nterprise <b>S</b>ervice <b>B</b>us</p>
+      <p class="center">
+        <img src="images/esb.png" alt="esb" height="300" />
       </p>
     </section>
     <section>
       <h3>Architectures Orientées Services</h3>
-      <p class="center">Intégration des services :<b>ESB</b></p>
-      <p>Enterprise Service Bus</p>
+      <p><b>E</b>nterprise <b>S</b>ervice <b>B</b>us</p>
       <ul>
-        <li>Pas de SPOFs</li>
-        <li>Même avantages que l'EAI (hub, interfaces, etc.)</li>
-        <li>Coût initial + complexité du messaging</li>
+        <li><i class="fa fa-check"></i> Pas de SPOFs</li>
+        <li><i class="fa fa-check"></i> Même avantages que l'EAI (hub, interfaces, etc.)</li>
+        <li><i class="fa fa-close"></i> Coût initial + complexité du messaging</li>
       </ul>
     </section>
     <section>
@@ -542,8 +547,26 @@
       <p class="center">Intégration des services :<b>Web</b></p>
       <p>Webservices, micro-services</p>
       <ul>
-
+        <li>> Chaque service est une application Web</li>
+        <li>> Le Web comme bus de services : DNS + TCP/IP</li>
+        <li>> Interopérable, peu ou pas de SPOFs, couplage faible</li>
       </ul>
+    </section>
+    <section>
+      <h3>Architectures Orientées Services</h3>
+      <p>REST - <b>RE</b>presentational <b>S</b>tate <b>T</b>ransfert</p>
+      <ul>
+        <li>> <b>U</b>niform <b>R</b>essource <b>L</b>ocator</li>
+        <li>> HTTP : HEAD, GET, POST, PUT, DELETE... (+ caching)</li>
+        <li>> State<b>less</b></li>
+      </ul>
+    </section>
+    <section>
+      <h3>Architectures Orientées Services</h3>
+      <p>REST - <b>RE</b>presentational <b>S</b>tate <b>T</b>ransfert</p>
+      <p class="center">
+        <img src="images/rest.png" alt="rest" />
+      </p>
     </section>
 
     
