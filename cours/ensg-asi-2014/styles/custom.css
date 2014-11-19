@@ -21,6 +21,9 @@ section th {
   background: #434343;
   color: #EEE;
 }
+.small {
+  font-size: 0.8em;
+}
 .arrow_box {
   position: relative;
   background: #88b7d5;
