@@ -5,6 +5,10 @@ class: center, middle, inverse
 ---
 # Devbox in Docker
 
+[http://dduportal.github.io/presentations/mixit-2015-devbox-docker/index.html](http://dduportal.github.io/presentations/mixit-2015-devbox-docker/index.html)
+
+[http://dduportal.github.io/presentations/mixit-2015-devbox-docker.pdf](http://dduportal.github.io/presentations/mixit-2015-devbox-docker.pdf)
+
 ---
 layout:false
 
