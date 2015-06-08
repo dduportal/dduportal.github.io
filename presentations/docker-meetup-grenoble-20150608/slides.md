@@ -61,4 +61,35 @@ layout: false
 
 ]
 
+---
+
+
+
+* Pourquoi Swarm ?
+  - Docker habituel pour dev (schema boot2docker)
+  - Production : Si le serveur plante / Si on effectue une maintenance programmee ?
+* C'est quoi swarm ?
+  - Docker == client + serveur (schema docker cli / serveur en N/N et 1/N) 
+  - Approche Garder client, noeuds de docker engines
+  - Manager /n oeuds ?
+* Comment ?
+  - Demarrer noeuds : quel discovery ?
+  - Demarrer manager : config et MaJ ?
+
+
+* Demo :
+  * Phase 1 :
+    - Schema MBA + PI
+    - Demarrer PI, SSH, docker cli, docker run arm
+    - Configuration Pi pour docker remote + registre + labels
+    - Docker run remote depuis MBA pour rejouer
+  * Phase 2 :
+    - Manager en statique avec IP depuis b2d-MBA
+    - Schema updated
+    - Client depuis Mac OS qui lance des arm-nginx avec visu browser
+  * Phase 3 :
+    - Docker hub discovery pour disovery dynamique
+    - schema upd
+    - Agents, puis manager
+
 
