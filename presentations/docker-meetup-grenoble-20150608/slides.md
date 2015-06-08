@@ -184,18 +184,44 @@ layout: false
 # Avec Swarm 
 
 * 3 Docker engines
-* Un "Swarm Manager" == un serveur HTTP qui gère les "engines"
+* Un "Swarm Manager"  qui gère les "engines"
 * 1 CLI avec une API : transparent
 
 .center[![dduportal](pictures/swarm-2.png)]
 
 ]
+
 ---
 
-* Comment ?
-  - Demarrer noeuds : quel discovery ?
-  - Demarrer manager : config et MaJ ?
+layout: false
+.left-column[
+# Whoami
+# Pourquoi ?
+# Concepts
+]
+.right-column[
 
+# Decouverte des noeuds :
+
+"Battery included but removable"
+
+* Default : via DockerHub
+* Statique
+* Consul
+* Etcd
+* ZooKeeper
+* Le votre ?
+
+.center[![dduportal](pictures/swarm-3.png)]
+
+]
+
+---
+template: inverse
+
+# Demo Time !
+
+???
 
 * Demo :
   * Phase 1 :
@@ -211,5 +237,4 @@ layout: false
     - Docker hub discovery pour disovery dynamique
     - schema upd
     - Agents, puis manager
-
 
