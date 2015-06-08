@@ -160,20 +160,38 @@ layout: false
 ]
 .right-column[
 
-# 
+# Sans Swarm 
 
-.center[![dduportal](pictures/SWARM.png)]
+* 3 Docker engines
+* 3 lignes de commande (ou 1 seule avec trois configurations)
+* 3 provisionnings
+* Plomberie inter-host
 
-* Utiliser plusieurs "Docker engine"
-* En toute transparence
-* Approche "Lean"
+.center[![dduportal](pictures/swarm-1.png)]
 
 ]
 
-* C'est quoi swarm ?
-  - Docker == client + serveur (schema docker cli / serveur en N/N et 1/N) 
-  - Approche Garder client, noeuds de docker engines
-  - Manager /n oeuds ?
+---
+
+layout: false
+.left-column[
+# Whoami
+# Pourquoi ?
+# Concepts
+]
+.right-column[
+
+# Avec Swarm 
+
+* 3 Docker engines
+* Un "Swarm Manager" == un serveur HTTP qui gère les "engines"
+* 1 CLI avec une API : transparent
+
+.center[![dduportal](pictures/swarm-2.png)]
+
+]
+---
+
 * Comment ?
   - Demarrer noeuds : quel discovery ?
   - Demarrer manager : config et MaJ ?
