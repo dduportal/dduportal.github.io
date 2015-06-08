@@ -3,11 +3,10 @@ name: inverse
 layout: true
 class: center, middle, inverse
 ---
-# Docker Grenoble meetup 08 Juin 2015
+# Docker swarm
+### Docker Grenoble meetup - 08 Juin 2015
 
 ---
-
-# Access this presentation :
 
 ## Online version (HTML) :
 
@@ -15,7 +14,7 @@ class: center, middle, inverse
 
 Proudly powered by [RemarkJS](https://github.com/gnab/remark)
 
-??
+???
 
 ## Offline version (PDF) :
 
@@ -28,19 +27,21 @@ layout:false
 
 # Agenda :
 
-1. 
+1. Whoami
+2. Pourquoi Swarm ?
+3. Concepts de Swarm
+4. Demo
 
 ---
 template: inverse
 
-# Introduction
+# Whoami
 
 ---
 
 layout: false
 .left-column[
-# Intro
-  ## Qui sommes-nous ?
+# Whoami
 ]
 .right-column[
 # Damien DUPORTAL
@@ -56,18 +57,64 @@ layout: false
 * Contact :
   * Gmail : `damien.duportal@gmail.com`
   * Twitter : [@DamienDuportal](https://twitter.com/DamienDuportal)
-  * Github : [dduportal](https://github.com/dduportal)
+  * Github : 
+      * [dduportal](https://github.com/dduportal)
+      * [mes Dockerfiles](https://github.com/dduportal-dockerfiles)
 
+]
+
+---
+template: inverse
+
+# Pourquoi Swarm ?
+
+---
+
+layout: false
+.left-column[
+# Whoami
+# Pourquoi ?
+]
+.right-column[
+
+# Docker "basique" 
+
+.center[![dduportal](pictures/docker4dev.png)]
 
 ]
 
 ---
 
+layout: false
+.left-column[
+# Whoami
+# Pourquoi ?
+]
+.right-column[
 
+# Docker "remote" avec CLI 
 
-* Pourquoi Swarm ?
-  - Docker habituel pour dev (schema boot2docker)
-  - Production : Si le serveur plante / Si on effectue une maintenance programmee ?
+.center[![dduportal](pictures/dockerCli.png)]
+
+]
+
+---
+
+layout: false
+.left-column[
+# Whoami
+# Pourquoi ?
+]
+.right-column[
+
+# Docker remote resilient ? 
+
+.center[![dduportal](pictures/dockerCli.png)]
+
+]
+
+---
+
 * C'est quoi swarm ?
   - Docker == client + serveur (schema docker cli / serveur en N/N et 1/N) 
   - Approche Garder client, noeuds de docker engines
