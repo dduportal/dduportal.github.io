@@ -79,7 +79,11 @@ layout: false
 
 # Docker "basique" 
 
-.center[![dduportal](pictures/docker4dev.png)]
+* Un serveur Linux
+* Un service "docker"
+* Une commande "docker"
+
+.center[![dduportal](pictures/docker-basic.png)]
 
 ]
 
@@ -94,7 +98,11 @@ layout: false
 
 # Docker "remote" avec CLI 
 
-.center[![dduportal](pictures/dockerCli.png)]
+* Un client docker local
+* Un "Docker Engine" distant
+* Communication par HTTP == Serveur web !
+
+.center[![dduportal](pictures/docker-cli.png)]
 
 ]
 
@@ -107,13 +115,60 @@ layout: false
 ]
 .right-column[
 
-# Docker remote resilient ? 
+# Résilience ? 
 
-.center[![dduportal](pictures/dockerCli.png)]
+Comment garantir la continuité de service :
+
+* Maintenance programmée ?
+* Docker engine qui plante ?
+
+.center[![dduportal](pictures/docker-failure.png)]
 
 ]
 
 ---
+
+layout: false
+.left-column[
+# Whoami
+# Pourquoi ?
+]
+.right-column[
+
+# Solution : Docker Swarm 
+
+.center[![dduportal](pictures/SWARM.png)]
+
+* Utiliser plusieurs "Docker engine"
+* En toute transparence
+* Approche "Lean"
+
+]
+
+---
+template: inverse
+
+# Concepts de Swarm
+
+---
+
+layout: false
+.left-column[
+# Whoami
+# Pourquoi ?
+# Concepts
+]
+.right-column[
+
+# 
+
+.center[![dduportal](pictures/SWARM.png)]
+
+* Utiliser plusieurs "Docker engine"
+* En toute transparence
+* Approche "Lean"
+
+]
 
 * C'est quoi swarm ?
   - Docker == client + serveur (schema docker cli / serveur en N/N et 1/N) 
