@@ -57,11 +57,37 @@ layout: false
 * Contact :
   * Gmail : `damien.duportal@gmail.com`
   * Twitter : [@DamienDuportal](https://twitter.com/DamienDuportal)
-  * Github : 
+  * Github :
       * [dduportal](https://github.com/dduportal)
       * [mes Dockerfiles](https://github.com/dduportal-dockerfiles)
 
 ]
+
+---
+
+layout: false
+.left-column[
+# Whoami
+]
+.right-column[
+# Manuel VACELET
+
+.center[![vaceletm](pictures/vaceletm.jpg)]
+
+* CTO & Co-founder @ Enalean / Tuleap
+
+* Agile (Grenoble)
+* Logiciels libres
+* Montagnes
+
+* Contact :
+  * Email : `manuel.vacelet@enalean.com`
+  * Twitter : [@vaceletm](https://twitter.com/vaceletm)
+  * Github :
+      * [vaceletm](https://github.com/vaceletm)
+
+]
+
 
 ---
 template: inverse
@@ -77,7 +103,7 @@ layout: false
 ]
 .right-column[
 
-# Docker "basique" 
+# Docker "basique"
 
 .center[![dduportal](pictures/docker4dev.png)]
 
@@ -92,7 +118,7 @@ layout: false
 ]
 .right-column[
 
-# Docker "remote" avec CLI 
+# Docker "remote" avec CLI
 
 .center[![dduportal](pictures/dockerCli.png)]
 
@@ -107,7 +133,7 @@ layout: false
 ]
 .right-column[
 
-# Docker remote resilient ? 
+# Docker remote resilient ?
 
 .center[![dduportal](pictures/dockerCli.png)]
 
@@ -116,7 +142,7 @@ layout: false
 ---
 
 * C'est quoi swarm ?
-  - Docker == client + serveur (schema docker cli / serveur en N/N et 1/N) 
+  - Docker == client + serveur (schema docker cli / serveur en N/N et 1/N)
   - Approche Garder client, noeuds de docker engines
   - Manager /n oeuds ?
 * Comment ?
@@ -138,5 +164,3 @@ layout: false
     - Docker hub discovery pour disovery dynamique
     - schema upd
     - Agents, puis manager
-
-
