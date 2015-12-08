@@ -1,0 +1,54 @@
+
+Principes d'architecture des SIs
+* Rappel Archi logicielle (ingénierie du dévelopement) 
+  > UML => 4 + 1
+  > UP/RUP => 4 phases
+* Différences avec archi logicielle
+  > Concepts manipulé différents, différents niveau d'abstraction et de granularité, convergence méthodologique
+  > Uses case transverse à plusiuers applications (diff de logiciel ou le use case est app mono-centric)
+
+  > démarche top-down (processus -> code) en 2 cas -Données traitement | composants
+  
+* Principes d'architectures techniques :
+  > Le client / serveur + Le middleware
+  > Le 3 tiers (présentation / métier / données)
+  > Le N-tiers : WebService
+  > Les arch. distribuées
+  > Les arch. orientées services
+
+
+
+Urbanisation du SI :
+* Méthodes :
+  > 
+  > ITIL
+  > DevOPS
+
+Keywords à ordonner : 
+* Récolte besoin
+* DAM
+* DAL
+* DAT
+* Critères d'un bon SI :
+	> Productif (rationalisé, efficace)
+	> Disponible (HA)
+	> Conforme
+	> Fiable
+	> Adaptable si besoin
+
+* Cycles :
+	> Cycle de vie + cycle de dév (analyse, conception, réa, tests, exploit, maintenance)
+	> Cycle chute d'eau
+	> Cycle V
+	> Cycle M (gestion proj, QA, gestion conf)
+	> Cycles iétratifs (Agile, DevOps, etc.)
+* Coût d'une erreur (relatif) :
+	> Analyse : 1
+	> Conceptt : 2
+	> Réa : 5
+	> Tests : 10
+	> Exploit >100
+* Chiffres sur dév :
+	> 80 des erreur sur analyse + conception
+	> 
+
