@@ -4,7 +4,7 @@ ENSG - Architecture des systèmes d'informations - 2014
 If you want to edit the presentation, you must have :
 * NodeJS installed (>= 0.8)
 * Npm installed and in your PATH
-* Acces to the web (at lesat http / https)
+* Access to the web (at least http / https)
 
 Then, install gulp and bower globally (you may have to use sudo on *Nix systems) :
 ```
