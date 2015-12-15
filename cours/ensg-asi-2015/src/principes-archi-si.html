@@ -77,12 +77,12 @@
       <li>Méthodologiques</li>
     </ul>
   </section>
-  
+
   <section>
     <h2>Principes de conception</h2>
     <p>Concept de <b>Tiers</b> ou <i>acteurs</i></p>
   </section>
-  
+
   <section>
     <h3>1 tiers</h3>
     <p class="center">
@@ -317,27 +317,27 @@
     <section>
       <h3>Architectures distribuées</h3>
       <p>RMI : exemple de code serveur</p>
-      <pre><code>public class HelloImpl extends UnicastRemoteObject implements Hello { 
+      <pre><code>public class HelloImpl extends UnicastRemoteObject implements Hello {
         public HelloImpl() {}
 
         public String sayHello() { return "Hello world!"; }
 
-        public static void main(String args[]) { 
-        HelloImpl obj = new HelloImpl(); 
-        Naming.rebind("HelloServer", obj); 
-      } 
+        public static void main(String args[]) {
+        HelloImpl obj = new HelloImpl();
+        Naming.rebind("HelloServer", obj);
+      }
     }</code></pre>
   </section>
   <section>
     <h3>Architectures distribuées</h3>
     <p>RMI : exemple de code client</p>
-    <pre><code>public class HelloClient { 
-      public static void main(String arg[]) { 
+    <pre><code>public class HelloClient {
+      public static void main(String arg[]) {
       String message = "blank";
 
       Hello obj = (Hello) Naming.lookup( "rmi://server.address.org:1234/HelloServer");
 
-      System.out.prinntln( obj.sayHello() ); 
+      System.out.prinntln( obj.sayHello() );
     }
   }</code></pre>
 </section>
@@ -568,8 +568,33 @@
         <img src="images/rest.png" alt="rest" />
       </p>
     </section>
-
-    
+    <section>
+      <h3>Architectures Orientées Services</h3>
+      <p>REST - <b>RE</b>presentational <b>S</b>tate <b>T</b>ransfert</p>
+      <p class="center">
+        <img src="images/rest.png" alt="rest" />
+      </p>
+    </section>
+    <section>
+      <h3>Architectures Micro-services</h3>
+      <p>
+        Le retour aux spaghettis ?
+      </p>
+      <p class="center">
+        <img src="images/death-star-netflix.jpg" alt="Netflix Death Star" />
+      </p>
+    </section>
+    <section>
+      <h3>Architectures Micro-services</h3>
+      <ul>
+        <li>> Scalabilité X et Y</li>
+        <li>> Découverte et routage dynamique</li>
+        <li>> Motifs de résilience ("Pattern breaking")</li>
+        <li>> Tout monitorer et mesurer !</li>
+        <li>> BDDs distribuées</li>
+        <li>> <a href="http://12factor.net/fr/">Les 12 facteurs (pas d'Astérix non !)</a></li>
+      </ul>
+    </section>
     <section>
       <h3>Récapitulatif</h3>
       <ul>
@@ -578,6 +603,7 @@
         <li>N tiers</li>
         <li>Distribué</li>
         <li>Orienté services</li>
+        <li>Micro-services</li>
       </ul>
     </section>
 
