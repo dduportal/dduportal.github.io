@@ -5,22 +5,6 @@ layout: true
 class: center, middle, inverse
 # Docker Introduction - CNAM 2017
 
-<!-- ---
-
-# Access this presentation :
-
-## Online version (HTML) :
-
-[http://dduportal.github.io/presentations/mixit-2015-devbox-docker](http://dduportal.github.io/presentations/mixit-2015-devbox-docker)
-
-Proudly powered by [RemarkJS](https://github.com/gnab/remark)
-
-## Offline version (PDF) :
-
-[http://dduportal.github.io/presentations/mixit-2015-devbox-docker/mixit-2015-devbox-docker.pdf](http://dduportal.github.io/presentations/mixit-2015-devbox-docker/mixit-2015-devbox-docker.pdf)
-
-Proudly exported with [Deck2PDF](https://github.com/melix/deck2pdf) -->
-
 ---
 
 # Whoami :
@@ -1061,19 +1045,44 @@ services:
 # Docker avancé
 # Docker: Écosystème
 ## Compose
-##
+## Swarm
 ]
 .right-column[
 
-# Swarm
+# Swarm 1/2
 
-* Commande `docker-compose`
-* Gestion intelligente des cycles de vie:
-  - Mise à jour d'une image sans toucher au contenu du data volume
-* Scaling des containeurs
-  - Ne gère PAS le routage pour vous !
-
-* Futur: intelligence vers le Docker Daemon avec la commande `docker service`
-  - Conversion des YAML vers le Docker Daemon
+.center[![Swarm](images/docker-swarm-1.jpg)]
 
 ]
+
+---
+
+.left-column[
+# Docker: 101
+# Docker: bases
+# Docker avancé
+# Docker: Écosystème
+## Compose
+## Swarm
+]
+.right-column[
+
+# Swarm 2/2
+
+.center[<img alt="Swarm Arch" src="images/swarm-arch.png" width=600/>]
+
+]
+
+---
+# Containerus Bellum
+
+.center[
+http://blog.octo.com/containerus-bellum-ou-la-chronique-des-hostilites-dans-lecosysteme-docker/
+
+<img src="images/dockerecosystem-octotechnology_v2.png" width=600/>
+]
+
+---
+class: center, middle, inverse
+# Merci !
+## Questions ?
