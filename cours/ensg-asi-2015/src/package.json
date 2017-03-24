@@ -1,8 +1,8 @@
 {
-  "name": "ensg-asi-2014",
+  "name": "ensg-asi-2015",
   "author": "Damien DUPORTAL <damien.duportal@gmail.com>",
-  "version": "1.0.0",
-  "description": "SIs architecure for ENSG, 2014",
+  "version": "1.1.0",
+  "description": "SIs architecure for ENSG, 2015",
   "repository": "https://github.com/dduportal/dduportal.github.io",
   "main": "index.html",
   "devDependencies": {
