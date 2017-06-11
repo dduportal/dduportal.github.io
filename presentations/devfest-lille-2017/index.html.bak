@@ -221,7 +221,7 @@ unless Integration Test is unstable</p></li></ul></div></li><li><p><em>Clues:</e
 }</code></pre></div></div></section><section id="cd_exercise_approval_and_deploy"><h2>CD: Exercise - Approval and Deploy</h2><div class="ulist"><ul><li><p>Goal: We want a Human Approval <strong>before</strong> Deploy</p></li><li><p>Add 2 stages named <code>Approval</code> and <code>Deploy</code>:</p><div class="ulist"><ul><li><p><code>Approval</code> will ask for a manual validation,
 after Integration Tests</p></li><li><p><code>Deploy</code> will tag and push the Docker Image
 to the Docker registry at the URL <code>localhost:5000</code>:</p></li></ul></div></li><li><p><em>Clues:</em> Keyword <code>input</code></p></li><li><p>Here is the <strong>Deploy</strong> shell code:</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code>docker tag demoapp:$(git rev-parse --short HEAD) localhost:5000/registry_user/demoapp:latest
+<div class="listingblock"><div class="content"><pre class="highlight"><code>docker tag demoapp localhost:5000/registry_user/demoapp:latest
 docker push localhost:5000/registry_user/demoapp:latest</code></pre></div></div></section><section id="cd_solution_approval_and_deploy"><h2>CD: Solution - Approval and Deploy</h2><div class="listingblock"><div class="content"><pre class="highlight"><code>pipeline {
   agent { node { label 'maven' }}
   stages {
@@ -247,7 +247,7 @@ docker push localhost:5000/registry_user/demoapp:latest</code></pre></div></div>
     stage('Deploy') {
       agent { label 'docker' }
       steps {
-        sh 'docker tag demoapp:$(git rev-parse --short HEAD) localhost:5000/registry_user/demoapp:latest'
+        sh 'docker tag demoapp localhost:5000/registry_user/demoapp:latest'
         sh 'docker push localhost:5000/registry_user/demoapp:latest'
       }
     }
@@ -279,7 +279,7 @@ docker push localhost:5000/registry_user/demoapp:latest</code></pre></div></div>
     }
     stage('Deploy') {
       agent { label 'docker' }
-      steps { sh 'docker tag demoapp:$(git rev-parse --short HEAD) localhost:5000/registry_user/demoapp:latest'
+      steps { sh 'docker tag demoapp localhost:5000/registry_user/demoapp:latest'
         sh 'docker push localhost:5000/registry_user/demoapp:latest' }
     }
   }
