@@ -1,124 +1,103 @@
 
 [background-color="hsl(50, 89%, 74%)"]
-= Software Testing
+= Tests Logiciels
 
-== Why test Software ?
+== Pourquoi tester un logiciel ?
 
-* link:http://istqbexamcertification.com/when-do-defects-in-software-testing-arise/[Humans always make mistakes]
-* link:https://en.wikipedia.org/wiki/Turing_test[Humans write code]
-* Code can have mistakes
-* Those mistakes have consequences
-* Testing identifies mistakes for resolution
-* Thus code *must* be tested to resolve mistakes
+* link:http://istqbexamcertification.com/when-do-defects-in-software-testing-arise/[Les Humains font des erreurs]
+* link:https://en.wikipedia.org/wiki/Turing_test[Les Humains écrivent du code]
+* Le code est donc sujet à erreurs: *Conséquences?*
+* Les *tests* identifient ces erreurs, dans un *but* de correction
 
-== What is "Software Testing" ?
+== Qu'est ce que le "test logiciel" ?
 
-* Testing software follows two baselines:
-** Validate that the software *meets* its goals
-** Search for *defects* that can be fixed to *improve* the software quality
+* Le test logiciel est une pratique suivant 2 piliers :
+** Valider que le logiciel remplisse les rôles qui lui sont confiés
+** Rechercher les *fautes* pour les corriger,
+améliorant la qualité du système
 
-== Automated or Manual Testings ?
+== Tests Automatisé ou Manuels ?
 
-* Automated = *big outcome*, can be _repeated_
-* Consider Manual testing (with caution) when:
-** cost of automation exceeds testing outcome
-** automation not possible (data or hardware constraint)
-*** Rarely the case, most interaction can be automated.
-Most appropriate when test result is subjective, such as user experience testing.
-** Save manual testing for later stages in your pipeline
+* Automatiser : *répétition* et *reproductibilité*
+* Test Manuel à considérer dans *peu de cas*, quand :
+** Coût de l'automatisation dépasse sa valeur
+** Automatisation impossible
 
-== Software Testing terminology
+== Terminologie du Test Logiciel
 
-* *SUT*: "System Under Testing". It defines the boundaries.
-* *Test Double*: Generic term used for objects and procedures
-that are simplified versions of sub-part of the SUT.
-E.g. Mock, Stub, Spy, etc.
-* *White Box*: Means testing with access to SUT internals
-** Testers can review code base
-* *Black Box*: Testing with no knowledge of SUT internals.
-** Testers can not review code base
-* *Automated Testing*: Using software outside the SUT,
-to run and control the testing suites, in a repetitive and reproducible way
-* *Manual Testing*: Human beings accessing the SUT to validate the software
+* *SUT*: "System Under Testing". Défini les frontières du système.
+* *Test Double*: Terme générique désignant un sous-ensemble simplifié
+du "S.U.T.". Exemples: Mock, Stub, Spy, etc.
+* *Boîte Blanche*: Tester avec une vue interne du SUT
+* *Boîte Noire*: Tester le SUT sans connaissance préalable de
+ses mécanismes interne
 
-== How to Test Software
+== Comment tester le logiciel ?
 
-Different types of software testing exist. +
-Here are some that we will cover:
-(Feel free to ask about others)
+* La question *primordiale* est:
+"Que voulez-vous tester ?"
 
-* Unit testing
-* Integration testing
-* Smoke testing
-* Functional Testing
-* Non-Regression testing
-* Acceptance testing
+* En fonction de la réponse, différent types de tests
+peuvent être utilisé (liste NON exhaustive) :
+** Unit testing
+** Integration testing
+** Smoke testing
+** Functional Testing
+** Non-Regression testing
+** Acceptance testing
 
-== Unit Testing
+== Test Unitaire
 
-A unit test is:
+* Focalisé sur le plus petit sous sytème possible du SUT, en "boîte blanche"
+* Tests *indépendants* les uns des autres
+** Ordre d'exécution non important
+** Utilisation de *Test Doubles* pour simuler le "reste" en bon fonctionnement
 
-* Focused on the smallest sub-system possible, defined as a "unit"
-* *Quick* to run
-** Each change of code should trigger a unit test; speed is *key*
-*** Achieve speed by limiting scope and complexity of test doubles
-* *Each unit test must be *independent* of all other unit tests
-** Run order must *not* matter
-*** Test environment should be set up, not cleaned up
-* SUT is considered to be a white box
-* Automate with (as an example):
-** Java, Scala, & Kotlin - Junit, TestNG
-** Ruby - Test:Unit, Shoulda
-** Go - testing, testify
-** Javascript & Node.JS - Mocha, espresso
+image::{imagedir}/test-unit.png[caption="Unit tests", width=300]
 
-image::{imagedir}/test-unit.png[caption="Unit tests", width=400]
+== Tests d'Intégration
 
-== Integration Testing
+* Vérifier l'intégration entre différents sous-systèmes
+* Le SUT est en "boîte blanche"
 
-Integration testing is the next step:
+image::{imagedir}/test-integration.gif[caption="Integration test"]
 
-* Validate integration *between* multiple sub-systems +
-image:{imagedir}/test-integration.gif[caption="Integration test"]
-
+[NOTE.speaker]
+====
 * Sub-Systems refers to:
 ** Internal sub-system: already validated by a unit test
 ** External sub-system: external element like a database, filesystem...
 * "Integration testing" can cover many subjects and may be slower to run
 ** Each sub-system must be validated against the others with which it interacts
 Appropriate scope and scale of integration testing is widely debated
-* SUT is considered to be a white box
+====
 
 == Smoke Testing
 
-The goal of the smoke test
-is to *fail-fast*
-or conduct further tests on the SUT.
+image::{imagedir}/test-smoke.jpg[caption="Plumbing Smoke Test",width=200]
 
-* It validates the basic functions of the system
-* Also known as "Sanity Checking"
-* It is a kind of *simple* integration test
-** Acts as a validation gate for further testing
-
-image::{imagedir}/test-smoke.jpg[caption="Plumbing Smoke Test", width=400]
+* But : *Fail Fast* en "boîte blanche"
+* Valide les fonctions "de base" du système
+* On parle parfois de "Sanity Checking"
 
 [quote, Anonymous Electrician]
 __
 If it smokes, it's bad
 __
 
-== Functional Testing
 
-* Validate the software behaviors against the expectations of the *maker*
-* It focuses on _"normal"_ behaviors and requirements
-* SUT is considered to be a *black box*
+== Tests Fonctionnels
 
-== Non-Regression Testing
+* Vérifie que le logiciel se comporte comme prévue par
+*les personnes en charge de la fabrication*
+* Pas de *biais* d'inteprétation
+* Le SUT est en "boîte noire"
 
-* Validate that the SUT still produces the same result
-* Works by focusing on a *single* and *buggy* behavior of the SUT
-* It ensures that this _buggy_ behavior will not occur again
-** An example of responding to test feedback
+== Tests de Régression
+
+* Vérifie que le SUT a un comportement stable dans le temps
+* Focalisation sur bug qui ne doit pas revenir
+* Le SUT est en "boîte noire"
 
 image::{imagedir}/test-regression.png[caption="Regression Test", width=200]
 
@@ -127,32 +106,41 @@ __
 Correcting a single bug may introduce several more.
 __
 
-== Acceptance testing
+== Tests d'Acceptation
 
-* Also known as "UAT": User Acceptance Testing or "End User testing"
-* Test suites of the full SUT, *focused* on end-user use cases and feelings
-* Done *with* end-users
-** Can be automated or manual
-* SUT is considered to be a *black box*
+* Également connu sous l'acronyme "UAT" User Acceptance Testing
+* Vérifie que le logiciel se comporte comme attendu par *l'utilisateur*
+* Biais de communication inclus
+* Le SUT est en "boîte noire"
 
 image::{imagedir}/test-acceptance.jpg[caption="Acceptance tests",width=300]
 
-== What did we learn ?
+== Ordre des Tests
 
-* Testing is required to fix outcomes
-* Automate everything to avoid having to test the tests
-** Save manual testing for when results are subjective, like user experience
+* Fonction des temps d'exécutions, des coûts de corrections,
+et des valeurs ajoutées. *Contextuel*.
 
-image::{imagedir}/test-pyramid.png[caption="The testing Pyramid",width=800]
+image::{imagedir}/test-pyramid.png[caption="The testing Pyramid",width=600]
 
-== Going further
+== Test Driven Development
 
-Some recommended readings on this subject:
+* TDD: Écrire les tests unitaires *avant* le code
 
+image::{imagedir}/tdd.png[caption="TDD",width=400]
+
+== Behaviour Driven Development
+
+* BDD: Privilégier language naturel et interactions
+** "Given, When, Then"
+** Moins de technique. Valeur ajoutée pour l'utilisateur.
+
+image::{imagedir}/bdd.png[caption="TDD",width=500]
+
+== Pour aller plus loin...
+
+* (FR) http://douche.name/blog/nomenclature-des-tests-logiciels/
 * http://martinfowler.com/bliki/UnitTest.html
-* http://stackoverflow.com/questions/520064/what-is-unit-test-integration-test-smoke-test-regression-test
 * https://en.wikipedia.org/wiki/Software_testing
 * http://martinfowler.com/tags/testing.html
 * http://martinfowler.com/bliki/TestCoverage.html
 * http://martinfowler.com/bliki/TestDrivenDevelopment.html
-* https://adamcod.es/2014/05/15/test-doubles-mock-vs-stub.html
