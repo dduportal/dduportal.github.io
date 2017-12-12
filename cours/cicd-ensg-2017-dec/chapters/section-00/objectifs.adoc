@@ -3,9 +3,4 @@
 = Objectifs
 
 == Objectifs
-
-* Présentation générale
-** Jenkins Pipelines
-** Blue Ocean
-* Donner des pistes d'exploration
-* Mais c'est mieux avec un atelier (Lab)
+TBD.

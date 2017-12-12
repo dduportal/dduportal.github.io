@@ -15,10 +15,6 @@ image::{imagedir}/damien.jpg[height="400",float="left"]
 ** Github: link:https://github.com/dduportal[dduportal]
 ** eMail: damien.duportal@gmail.com
 
-== !
-
-image::{imagedir}/Presentation-CloudBees.png[width=110%]
-
 == Et vous ?
 [.left.text-center]
 image::{imagedir}/commitstrip.png[width="400"]
