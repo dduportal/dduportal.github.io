@@ -1,0 +1,24 @@
+
+[background-color="hsl(50, 89%, 74%)"]
+= Bonjour !
+
+== Damien DUPORTAL
+[.right.text-center]
+image::{imagedir}/damien.jpg[height="400",float="left"]
+
+* *Training Engineer* @ CloudBees
+** Docker & Apple fanboy.
+** Human stack focused
+** Rock climber
+* Contact:
+** Twitter: link:https://twitter.com/DamienDuportal[@DamienDuportal]
+** Github: link:https://github.com/dduportal[dduportal]
+** eMail: damien.duportal@gmail.com
+
+== !
+
+image::{imagedir}/Presentation-CloudBees.png[width=110%]
+
+== Et vous ?
+[.left.text-center]
+image::{imagedir}/commitstrip.png[width="400"]

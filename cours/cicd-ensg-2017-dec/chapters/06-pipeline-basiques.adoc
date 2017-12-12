@@ -1,0 +1,110 @@
+
+[background-color="hsl(50, 89%, 74%)"]
+= Pipeline: Basiques
+
+== Exercise: Réparer le build
+
+* Le build est en état `UNSTABLE` (jaune)
+* *Priorité:* réparer le build
+* Utiliser *Gitea git server*
+* Les tests d'intégration sont dans `src/test/java/hello`
+* Indices:
+** _Integration Tests:_ == *IT*
+** Il suffit de savoir commenter/dé-commenter
+
+== Solution: Réparer le build
+
+* Depuis
+link:{demoapp-repo-web-url}/src/master/src/test/java/hello/HelloControllerIT.java[src/test/java/hello/HelloControllerIT.java]
+** Cliquer sur "Edit"
+* Commenter la ligne 39
+* *Dé*-commenter la ligne 40
+* *Commit* avec un message (push automatique)
+* Lancer le build manuellement dans Blue Ocean
+* Le build doit être vert (*Stable*)
+
+== Webhooks pour un retour plus rapide
+
+* Nous avons dû lancer le build manuellement
+* IC: Retours *rapides* !
+** Lancer le build dès que le code est poussé
+
+== Exercise: Webhooks
+
+* Configurons un *"Webhook"* :
+** Depuis *Gitea git server* -> *Settings* -> *Webhooks*
+*** link:{demoapp-repo-web-url}/settings/hooks[Lien direct vers la configuration de Webhooks,window=_blank]
+* Ajouter un nouveau webhook:
+** Type: *Gitea*
+** When should this webhook be triggered?: *I need everything*
+** Payload URL:
+link:{demoapp-mb-job-build-url}[{demoapp-mb-job-build-url},window=_blank]
+
+== Solution: Webhooks
+
+* Ajoutez un commentaire dans le Jenkinsfile
+depuis *Gitea git server*
+** Un build va démarrer
+** Validez dans l'onglet "Changes"
+
+== Aller plus loin...
+
+* Dans l'éditeur *Blue Ocean*, voir la version textuelle:
+** Combinaison `CTRL + S` (On Mac: `CMD +S`)
+** Bi-directionnel: essayez de charger une solution de pipeline
+
+* Le *Pipeline Syntax Snippet Generator* comme acolyte:
+** Génération dynamique en fonction de vos plugins
+** Depuis l'interface "ancienne" de Jenkins
+** Menu de gauche de votre job "Pipeline" (ou MultiBranch)
+*** link:{demoapp-mb-job-url}/pipeline-syntax/[{demoapp-mb-job-url}/pipeline-syntax/,window=_blank]
+
+== Exercise - Réutilisation Binaire
+
+* But: réutiliser les binaires générés dans *Build*
+* Action: "mise sur étagère": *Stash / Unstash*
+* Modifier le Pipeline pour :
+** "Stasher" le dossier `target`, à la fin de la phase *Build*
+** "Unstasher" au début de la phase *Test*
+* _Attention_, une limite de l'éditeur *Blue Ocean*
+va être atteinte
+
+== Solution - Réutilisation Binaire
+
+* L'éditeur Blue Ocean ne supporte pas encore
+le ré-ordonnancement de "stages"
+** Mode textuel et/ou *Snippet Generator* à utiliser
+
+[source,groovy,subs="attributes"]
+----
+include::{pipeline-solutions}/04-Jenkinsfile-stash-tests[]
+----
+
+== Post-Stage
+
+* Section `post` :
+** Contient des "steps" à exécuter
+à la fin du Pipeline *ou* après une "stage"
+** Divisé en "condition d'états":
+`always`, `success`, `failure`, `changed`
+* Chaque condition contient ses propres "steps"
+* Pas _encore_ intégré dans l'éditeur Blue Ocean
+
+== Exercice - Rapport de Tests Unitaires
+
+* Si le "stage" *Build* échoue,
+alors la tâche "archiveArtifacts" ne devrait pas être exécutée
+** Même chose pour `stash`
+* Les rapports de tests unitaires doivent être
+publiés dans *tous* les cas après la phase *Build*
+** Format Junit
+** Stockés dans `target/{asterisk}{asterisk}/{asterisk}.xml`
+* Utiliser la documentation:
+** link:https://jenkins.io/doc/book/pipeline/syntax/#post[Post section on docs.jenkins.io]
+
+== Solution - Rapport de Tests Unitaires
+
+[source,groovy,subs="attributes"]
+----
+include::{pipeline-solutions}/05-Jenkinsfile-post-tests[]
+----

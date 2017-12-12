@@ -1,0 +1,107 @@
+
+[background-color="hsl(50, 89%, 74%)"]
+= Simple Pipeline
+
+== Accessing your Lab Instance
+
+* You need Vagrant (2.0.1+) + VirtualBox (5.1.30+)
+* Run the following commands to start the Lab VM locally:
++
+[source,bash]
+----
+# Getting the VM template (1 time only)
+vagrant box add jenkins-lab-demo http://bit.ly/2BxqFPT
+# Initialize the environment (1 time only)
+mkdir ~/jenkins-lab-demo && cd ~/jenkins-lab-demo
+vagrant init -m -f jenkins-lab-demo
+# Start the lab
+vagrant up
+----
+
+* Open the URL link:http://[YOUR_INSTANCE_DNS]:10000
+** Welcome to the *Lab Home Page*
+* Click the link *Workshop Slides*
+** Browse to this current slide
+
+== Accessing Source Code
+
+* Access the *Gitea git server*:
+** link:{gitserver-url}[{gitserver-url},window=_blank]
+** *Log in*  as the user *`butler`* (password is the same)
+* Access the source code:
+** Once authenticated, click on *Explore* (on top)
+** Click on *{admin-user}/{demoapp-repo-name}*
+*** Direct link: link:{demoapp-repo-web-url}[]
+
+== Accessing Jenkins
+
+* Access your Jenkins instance:
+** link:{jenkins-url}[{jenkins-url},window=_blank]
+** *Log in*  as the user *`butler`* (password is the same)
+** This is the "Jenkins Classic GUI"
+
+== Blue Ocean
+
+* Switch to Blue Ocean:
+** link:{jenkins-url}/blue[Direct link to Blue Ocean GUI,window=_blank]
+** _Or_ click on the item "Open Blue Ocean", on the left menu
+
+== Exercise: Create First Project
+
+* Create a new Pipeline, with the following properties:
+** Stored in *Git*
+** Get the *SSH* URL from the _git server_
+** Configure Jenkins access to the source code:
+*** In Gitea, click the top-right user drop down
+*** Browse to SSH/GPG Keys
+*** Add a new key, by copy and pasting from Jenkins
+
+== Exercise - Your First Pipeline
+
+* Click the button *Create a Pipeline*
+* Use the *Blue Ocean Pipeline Editor* and *Gitea git server*
+* Create a Pipeline that have 3 stages: *Build*, *Test* and *Deploy*
+* Each stage has 1 step that prints a message
+** "Building..." for *Build*, "Testing..." for *Test* ...
+* Save, add a commit message and see the build kicking off
+
+== Solution - Your first pipeline
+
+[source,groovy,subs="attributes"]
+----
+include::{pipeline-solutions}/01-Jenkinsfile-echo[]
+----
+
+== Exercise - Run tasks with Pipeline
+
+* Using the *Blue Ocean Pipeline Editor*:
+** Edit the current Pipeline's 3 stages to run scripts
+** Scripts are stored in the `./scripts` folder (in SCM)
+** Use the step *Shell Script* (keyword `sh`)
+** Remove the `echo` steps
+* Save, add a commit message and see the build kicking off
+
+== Solution - Run tasks with Pipeline
+
+[source,groovy,subs="attributes"]
+----
+include::{pipeline-solutions}/02-Jenkinsfile-base[]
+----
+
+== Exercise - Archives and Tests
+
+* Using the *Blue Ocean Pipeline Editor*:
+** Edit the current Pipeline
+** *Build* stage should archive all `{asterisk}.jar` files
+*** Found in the directory `target`. TIP for pattern: `{asterisk}.jar`
+** *Test* stage should publish the `junit` test reports
+*** Found in `target`. TIP for recursive pattern: `{asterisk}{asterisk}/{asterisk}.xml`
+* Save, add a commit message and see the build kicking off
+* Build should be *UNSTABLE*
+
+== Solution - Archives and Tests
+
+[source,groovy,subs="attributes"]
+----
+include::{pipeline-solutions}/03-Jenkinsfile-archive-tests[]
+----

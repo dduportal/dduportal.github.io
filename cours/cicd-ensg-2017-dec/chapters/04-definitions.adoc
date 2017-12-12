@@ -1,0 +1,94 @@
+
+[background-color="hsl(50, 89%, 74%)"]
+= Définitions
+
+== Continuous Integration (CI)
+
+image::{imagedir}/fail-fast-continuous-integration.png[height=350]
+
+* Chaque intégration est validée par un *build automatisé* (avec tests)
+* Le code est *intégré souvent*, au moins journellement, pour que l'intégration soit un non-event
+* Construire et intégrer le code *en continu*, avec une boucle de feedback
+
+== DevOps: Software as a "Supply Chain"
+
+image::{imagedir}/supply-chain.png[]
+
+== !
+
+image::{imagedir}/CD_and_CD.png[]
+
+
+== The Pipeline
+
+image::{imagedir}/pipeline.png[]
+
+== Jenkins
+[.right.text-center]
+image::{imagedir}/jenkins_logo.png[height="400",float="left"]
+
+* Logiciel Open Source
+* Orchestrateur de tâches
+* Un des tout premiers moteur d'intégration continue
+* Architecture  centrée sur les plugins
+** Un gigantesque écosystème
+
+== !
+
+image::{imagedir}/BlueOcean.png[]
+
+
+== Blue Ocean
+* Pierre angulaire de l'évolution de Jenkins
+* Visualisation et manipulation de "Pipelines"
+* GUI moderne, se concentrant sur les actions principales
+
+
+== Jenkins Pipelines
+
+* Un outil pour définir votre flux de Continuous Delivery/Deployment avec votre code
+* != outil de création de job comme "Job DSL"
+
+== Ses avantages:
+
+* Réduit le nombre de jobs nécessaires
+* Spécification facilitée par du "code"
+* Survi au redémarrage du Jenkins Master
+
+
+
+== Définition
+
+* Le Pipeline est décrit dans un fichier texte: le JenkinsFile
+** DSL spécifique
+** stocké dans un SCM
+*** versionné
+*** isolation par branche
+*** suit les patterns à la “Git / Github / Gitlab flow”
+
+
+== Débuter avec les Pipelines
+
+* Pipeline-as-code: Nous avons besoin d'un `Jenkinsfile`
+
+* Par où commencer ?
+** link:https://jenkins.io/doc/pipeline/tour/hello-world/[Getting Started with Pipeline,window=_blank]
+** link:https://jenkins.io/doc/pipeline[Pipeline "Handbook",windows=blank]
+** link:https://jenkins.io/doc/book/pipeline/syntax/[Pipeline Syntax Reference,windows=blank]
+** link:https://jenkins.io/doc/pipeline/steps/[Pipeline Steps Reference,windows=blank]
+
+== Declarative or Scripted Pipelines ?
+
+* *Declarative*
+** Syntaxe par défaut
+** S'utilise avec Blue Ocean
+* Scripted
+** Syntaxe originale (~3 ans)
+** "Great Power == Great Responsibility"
+** À utiliser lorsque le Déclaratif commence à être *bizarre*
+
+== Blue Ocean Pipeline Editor
+
+* Fourni le cycle ("round trip") *complet* avec le SCM
+* Pas de Pipeline ? "Suivez le guide".
+* Le Pipeline existe déjà ? Edit, commit, et exécutez le

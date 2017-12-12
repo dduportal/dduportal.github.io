@@ -1,0 +1,68 @@
+
+[background-color="hsl(50, 89%, 74%)"]
+= Agents
+
+== Qu'est ce qu'un Agent?
+
+* Un noeud (ou *node*) est une machine prête à recevoir
+des _builds_
+* Step `agent` spécifie sur quel "noeud" exécuter des "stages".
+* Une section `agent` globale *doit* être définie
+(au niveau du block `pipeline`)
+* On peut aussi définire des sections `agent` par "stage"
+
+== Exercice - Agents
+
+* Exécuter l'étape *Build* sur un agent
+configuré avec le label `maven-jdk8`
+* Exécuter l'étape *Test* sur un agent
+configuré avec le label `java8`
+* L'éditeur Blue Ocean est utilisable
+
+== Solution - Agents
+
+[source,groovy,subs="attributes"]
+----
+include::{pipeline-solutions}/06-Jenkinsfile-agents[]
+----
+
+== Exercice - Tests Parallèles
+
+* *But:* Tester en parallèle l'application
+sur java 7 et 8
+* Mot clef `parallel` définissant un block contenant
+des "stages"
+* Agent `java7` pour le Test Java 7
+* L'éditeur Blue Ocean est utilisable (et recommandé)
+
+== Solution - Tests Parallèles
+
+[source,groovy,subs="attributes"]
+----
+include::{pipeline-solutions}/07-Jenkinsfile-parallel-tests[]
+----
+
+== Agents avec Docker
+
+* *But:* Usage de Docker pour faciliter la définition
+des environements de build
+* Le mot clef `agent` permet d'exécuter les "stages" dans
+un container Docker, depuis une "image Docker",
+ou depuis un `Dockerfile` (recette maison d'image Docker)
+** link:https://jenkins.io/doc/book/pipeline/syntax/#agent[Directive Agent sur jenkins.io]
+
+== Exercice - Agent Docker
+
+* Exécuter le *Build* dans un containeur
+basé sur le fichier `Dockerfile.build`
+* Exécuter le *Test Java 8* dans un containeur
+basé sur les images `maven:3-jdk-8-alpine`
+* Trick: documentation manquante sur `filename`,
+dans un block `dockerfile`
+
+== Solution - Agent Docker
+
+[source,groovy,subs="attributes"]
+----
+include::{pipeline-solutions}/08-Jenkinsfile-dockerfile-agents[]
+----

@@ -1,0 +1,11 @@
+
+[background-color="hsl(50, 89%, 74%)"]
+= Objectifs
+
+== Objectifs
+
+* Présentation générale
+** Jenkins Pipelines
+** Blue Ocean
+* Donner des pistes d'exploration
+* Mais c'est mieux avec un atelier (Lab)

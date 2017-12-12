@@ -1,0 +1,16 @@
+include::./attributes.adoc[]
+
+= CI/CD - ENSG Décembre 2017
+
+Damien DUPORTAL
+
+:leveloffset: +1
+include::{chaptersdir}/02-hello.adoc[]
+include::{chaptersdir}/03-objectifs.adoc[]
+include::{chaptersdir}/04-definitions.adoc[]
+include::{chaptersdir}/05-simple-pipeline.adoc[]
+include::{chaptersdir}/06-pipeline-basiques.adoc[]
+include::{chaptersdir}/07-agents.adoc[]
+include::{chaptersdir}/08-pipeline-avances.adoc[]
+
+:leveloffset: -1
