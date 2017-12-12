@@ -1,0 +1,157 @@
+
+= Software Testing
+
+== Why test Software ?
+
+* link:http://istqbexamcertification.com/when-do-defects-in-software-testing-arise/[Humans always make mistakes]
+* link:https://en.wikipedia.org/wiki/Turing_test[Humans write code]
+* Code can have mistakes
+* Those mistakes have consequences
+* Testing identifies mistakes for resolution
+* Thus code *must* be tested to resolve mistakes
+
+== What is "Software Testing" ?
+
+* Testing software follows two baselines:
+** Validate that the software *meets* its goals
+** Search for *defects* that can be fixed to *improve* the software quality
+
+== Automated or Manual Testings ?
+
+* Automated = *big outcome*, can be _repeated_
+* Consider Manual testing (with caution) when:
+** cost of automation exceeds testing outcome
+** automation not possible (data or hardware constraint)
+*** Rarely the case, most interaction can be automated.
+Most appropriate when test result is subjective, such as user experience testing.
+** Save manual testing for later stages in your pipeline
+
+== Software Testing terminology
+
+* *SUT*: "System Under Testing". It defines the boundaries.
+* *Test Double*: Generic term used for objects and procedures
+that are simplified versions of sub-part of the SUT.
+E.g. Mock, Stub, Spy, etc.
+* *White Box*: Means testing with access to SUT internals
+** Testers can review code base
+* *Black Box*: Testing with no knowledge of SUT internals.
+** Testers can not review code base
+* *Automated Testing*: Using software outside the SUT,
+to run and control the testing suites, in a repetitive and reproducible way
+* *Manual Testing*: Human beings accessing the SUT to validate the software
+
+== How to Test Software
+
+Different types of software testing exist. +
+Here are some that we will cover:
+(Feel free to ask about others)
+
+* Unit testing
+* Integration testing
+* Smoke testing
+* Functional Testing
+* Non-Regression testing
+* Acceptance testing
+
+== Unit Testing
+
+A unit test is:
+
+* Focused on the smallest sub-system possible, defined as a "unit"
+* *Quick* to run
+** Each change of code should trigger a unit test; speed is *key*
+*** Achieve speed by limiting scope and complexity of test doubles
+* *Each unit test must be *independent* of all other unit tests
+** Run order must *not* matter
+*** Test environment should be set up, not cleaned up
+* SUT is considered to be a white box
+* Automate with (as an example):
+** Java, Scala, & Kotlin - Junit, TestNG
+** Ruby - Test:Unit, Shoulda
+** Go - testing, testify
+** Javascript & Node.JS - Mocha, espresso
+
+image::{imagedir}/test-unit.png[caption="Unit tests", width=400]
+
+== Integration Testing
+
+Integration testing is the next step:
+
+* Validate integration *between* multiple sub-systems +
+image:{imagedir}/test-integration.gif[caption="Integration test"]
+
+* Sub-Systems refers to:
+** Internal sub-system: already validated by a unit test
+** External sub-system: external element like a database, filesystem...
+* "Integration testing" can cover many subjects and may be slower to run
+** Each sub-system must be validated against the others with which it interacts
+Appropriate scope and scale of integration testing is widely debated
+* SUT is considered to be a white box
+
+== Smoke Testing
+
+The goal of the smoke test
+is to *fail-fast*
+or conduct further tests on the SUT.
+
+* It validates the basic functions of the system
+* Also known as "Sanity Checking"
+* It is a kind of *simple* integration test
+** Acts as a validation gate for further testing
+
+image::{imagedir}/test-smoke.jpg[caption="Plumbing Smoke Test", width=400]
+
+[quote, Anonymous Electrician]
+__
+If it smokes, it's bad
+__
+
+== Functional Testing
+
+* Validate the software behaviors against the expectations of the *maker*
+* It focuses on _"normal"_ behaviors and requirements
+* SUT is considered to be a *black box*
+
+== Non-Regression Testing
+
+* Validate that the SUT still produces the same result
+* Works by focusing on a *single* and *buggy* behavior of the SUT
+* It ensures that this _buggy_ behavior will not occur again
+** An example of responding to test feedback
+
+image::{imagedir}/test-regression.png[caption="Regression Test", width=200]
+
+[quote, Any developer]
+__
+Correcting a single bug may introduce several more.
+__
+
+== Acceptance testing
+
+* Also known as "UAT": User Acceptance Testing or "End User testing"
+* Test suites of the full SUT, *focused* on end-user use cases and feelings
+* Done *with* end-users
+** Can be automated or manual
+* SUT is considered to be a *black box*
+
+image::{imagedir}/test-acceptance.jpg[caption="Acceptance tests",width=300]
+
+== What did we learn ?
+
+* Testing is required to fix outcomes
+* Automate everything to avoid having to test the tests
+** Save manual testing for when results are subjective, like user experience
+
+image::{imagedir}/test-pyramid.png[caption="The testing Pyramid",width=800]
+
+== Going further
+
+Some recommended readings on this subject:
+
+* http://martinfowler.com/bliki/UnitTest.html
+* http://stackoverflow.com/questions/520064/what-is-unit-test-integration-test-smoke-test-regression-test
+* https://en.wikipedia.org/wiki/Software_testing
+* http://martinfowler.com/tags/testing.html
+* http://martinfowler.com/bliki/TestCoverage.html
+* http://martinfowler.com/bliki/TestDrivenDevelopment.html
+* https://adamcod.es/2014/05/15/test-doubles-mock-vs-stub.html

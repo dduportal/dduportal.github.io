@@ -1,0 +1,199 @@
+
+= Source Code Management (SCM)
+
+== What is SCM ?
+
+Source Code Management systems, also known as "Version Control Systems" (VCS):
+
+* Are *software* systems
+* Records *all* changes for a set of files over time
+* Allows you to *share* those changes
+* Provides *merging* and *tracking* capabilities of the recorded changes
+
+== Why use SCM ?
+
+When working as a development team, SCM allows you:
+
+* To *collaborate* efficiently on a single codebase
+** Helps resolve code conflicts
+** Makes it easy to share contents
+* To keep track of *every change*: SCM as a _Single Source of Truth_
+** Provides a complete modification history
+** Allows easy rollback to an earlier version
+
+== What are the different styles of SCM?
+
+We can see 3 styles of SCM:
+
+* *Local*
+* *Centralized*
+* *Distributed*
+
+== Local SCM
+
+* Older method; the antecedent of all modern SCM
+* *Only* tracks modfication history:
+** Use a _"Version Database"_ of all the file versions
+** Stores differences between versions (_"diff"_)
+* Sharing problem *not* addressed
+* Example: _rcs_ (still in Apple XCode Tools)
+
+image::{imagedir}/scm-local.png[caption="Local SCM",width=300]
+
+== Centralized SCM (CVCS)
+
+* Less old and *still widely* used
+* Covers *both* history and sharing:
+** History is the same as local SCMs
+** The "version database" is stored on a *central* server
+* Each developer is a client with *only 1* (at a time) version of the codebase
+* Easy learning curve
+* Example: CVS, SVN, Perforce, TFS
+
+image::{imagedir}/scm-centralized.png[caption="Centralized SCM",width=300]
+
+== Distributed SCM (DVCS)
+
+* Almost the same as CVCS, but the "Version Database" is
+*distributed via duplication* on every node
+** When centralized server is down, you can keep working
+** Better Conflict resolution, improving collaboration process
+* Learning curve is a bit more difficult compared to centralized SCMs
+* Example: Git, Mercurial, Bazaar, Monotone
+
+image::{imagedir}/scm-distributed.png[caption="Centralized SCM",width=300]
+
+== Cloud-based SCM
+
+* You can consider them to be "SCM as a Service"
+* The _"Version Database"_ is hosted in a Cloud Web Service
+** Pro: Delegate the hosting and managing of your SCM, focus on using it
+** Con: Your codebase is on another company's system
+* Also provides valuable services around your codebase such as an online text editor,
+visual tools, issue tracker, etc...
+** These features are often available with Enterprise On-Premise solutions.
+* Examples: Github, Bitbucket by Atlassian, Amazon CodeCommit, Visual Studio Online by Microsoft,
+SourceForge, GitLab, etc.
+
+image::{imagedir}/scm-cloud.png[caption="Cloud hosted SCM"]
+
+== SCM Terminology: Basics
+
+* Each set of changed lines on a *single* file is a _"diff"_
+* A set of diffs which have been explicitly validated are a _"commit"_ +
+image:{imagedir}/scm-basics-legend.png[caption="Legends for basics of SCM"]
+
+* A commit is actually a new version of the codebase
+* A commit can exist only locally or only remotely
+* The latest commit on the history is the _"HEAD"_
+
+image::{imagedir}/scm-basics-history.png[caption="Basics about SCM"]
+
+== SCM Terminology: Branches
+
+* A *branch*, in SCM terminology, is a pointer to a single commit
+** _HEAD_ is the "latest" branch, also known as the "master" branch
+** To integrate a branch, you must *merge* it: +
+image:{imagedir}/scm-branches.png[caption="SCM branches"]
+
+== SCM Terminology: Pull Request
+
+* A *Pull-Request* is a way of merging a branch into "master"
+** A branch is pushed to the central server without having been *merged*
+** It _"asks"_ to be merged on a central repository
+** Opportunity is given to review the changes *before* merging
+** Pull request ends by being closed or *merged* to destination branch
+
+image::{imagedir}/scm-pull-request.png[caption="Pull Request"]
+
+== How to use SCM ? Workflow Patterns
+
+Usage of VCS/SCM made well-known patterns emerge:
+
+* Centralized Workflow pattern
+* Feature Branch Workflow pattern
+* Git Workflow pattern
+* Forking Workflow pattern
+
+== Centralized Workflow Pattern
+
+image::{imagedir}/scm-centralized-flow.png[caption="Centralized SCM Workflow"]
+
+* Defined by collaborators working from a single code base
+** Abstraction of this process is the basis for Trunk based development
+* This pattern is the natural usage of a CVCS like SVN or CVS
+* It is easy to understand and use, and sufficient enough for a lot of cases
+* Collaboration is blocked when centralized server is down or history is broken
+
+== Centralized Workflow pattern: How to ?
+
+image::{imagedir}/scm-centralized-flow-how-to.jpg[caption="Centralized SCM Workflow",width=800]
+
+== Feature Branch Workflow Pattern
+
+* Goal of this pattern: using *one* branch *per* feature
+** Encapsulation allows working without disturbing the main codebase
+** Allows easier collaboration
+** Merge conflicts map the conceptual conflicts: easier to track
+** Useful when inclusion of a feature in the main code base is open to debate
+
+image::{imagedir}/scm-feature-branch-workflow.png[caption="Feature Branch SCM Workflow",link=https://twitter.com/jay_gee/status/702638177471873024]
+
+== Git Workflow Pattern
+
+* Extension of the Feature Branch Workflow pattern
+* Proposed by Vincent Driessen at link:http://nvie.com[nvie]
+* Target large-scale projects or software products
+* Strict branching implementation: roles for specific branches
+* Useful when Build Promotion will play a signifigant role in your release strategy
+
+image::{imagedir}/scm-git-workflow.png[caption="SCM Git Workflow",width=600]
+
+== Fork Workflow Pattern
+
+* Pattern inherited from (GitHub/Bitbucket)-like services
+* Push forward concepts of distributed file systems
+* Each user _"forks"_ the main repository and can propose pull requests
+between repositories
+** Think Branch based development but you fork instead
+** Authorization management improved
+*** Useful when code contributions from unknown developers must be validated
+** Autonomy for better collaboration process
+** Decentralized for new patterns ("promiscuous integration")
+*** Devopers may manage development as they wish within their own repository
+
+image::{imagedir}/scm-fork-workflow.png[caption="SCM Fork Workflow",height=300]
+
+== Using SCM to solve problems
+
+* Infrastructure as Code is a good example of using SCM
+to solves common problems:
+** Goal: Defining an infrastructure system
+** Operating the infrastructure is changing those definitions (adding/deleting machines, updating ones, etc.)
+** Collaboration is required on this changes
+* Using text files stored in SCM solve this problem:
+** Mapping conflicts to an automated process: merging
+** Allowing same collaboration and authorization as for code
+* Jenkinsfile usage can be considered an example
+
+
+== What did we learn ?
+
+* Codebases are versioned with SCM in VCS, which is software that tracks of all changes and helps to share source code.
+* We have 2 "main" types: Centralized and Distributed VCS
+* Depending on your needs and the VCS, you should use the most efficient pattern
+for your codebase: Centralized, Feature Branch, GitFlow, Fork
+* Storing your codebase is not a free meal: think about backup, crash, privacy
+** Can be addressed by simply replicating your VCS instance and integrating with your identity management system like any other internal service.
+
+== Going further
+
+Some recommended readings on this subject:
+
+* https://www.atlassian.com/git/tutorials/comparing-workflows
+* http://martinfowler.com/bliki/VersionControlTools.html
+* https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
+* http://martinfowler.com/bliki/FeatureBranch.html
+* http://nvie.com/posts/a-successful-git-branching-model/
+* https://en.wikipedia.org/wiki/Infrastructure_as_Code
+* https://www.simple-talk.com/opinion/opinion-pieces/branching-and-merging-ten-pretty-good-practices/

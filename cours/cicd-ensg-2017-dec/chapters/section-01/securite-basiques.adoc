@@ -1,0 +1,96 @@
+
+= Security
+
+== Why do Security ?
+
+* Your organization uses _information_ to create value
+* Information is valuable and *must* follow:
+** Confidentiality
+** Integrity
+** Availability
+* Implementing *Security* practices envorce those rules
+
+== What is Security ?
+
+* Security is the set of practices and tools to fight and prevent *threats*
+* It's all about following those principles:
+** *Know the system*
+** *Least privilege:* If you do not need to do it, you do not have the right to do it.
+** *Defense in Depth:* Systems are layered. Put security on all layers.
+** *Preventing is good. Detection is better:* Continuous monitoring and detection.
+
+== How to do security ? Least privilege
+
+* Handling "Least privileges" concepts makes you manage the *AAA* concepts:
+** Authentication
+** Authorization
+** Accounting
+
+== Authentication
+
+* Authentication is the set of tools and procedures that *identify*
+a user with _enough confidence_
+** When police check your ID, it is authentication
+** Using a login and a password is an authentication
+** Biometrics are also a type of authentication
+** 2FA, that stands for "Two Factor Authentication" is a stronger authentication scheme
+
+image::{imagedir}/security-authentication.jpg[caption="Authentication",width=600]
+
+== Authorization
+
+* Once a given user is _authenticated_, need to determine the actions
+this user should have the right to do
+* *Authorization* always occurs in the context of _authentication_
+* Authorization grants access rights to:
+** *Resources:* Tasks, objects and/or actions to manipulate
+** *Roles:* A set of rights grouped together by commodity
+** *Requesters:* User or group that has roles assigned,
+and wants to manipulates resources
+* It is easy to visualize and enforce with a *Security Matrix*
+
+== Accounting
+
+* Occurs in the context of a user both *authenticated* and *authorized*.
+* It *measures* resources used or consumed by the user during access.
+* This can be amount of data, compute resources, or system time.
+* It enforces *limits* when they are defined to protect system.
+* Related to system measurement, *capacity planning* and feedback loops
+
+== How to do security ? Defense in Depth:
+
+* Defense in Depth is not an easy subject,
+but we are focusing on the *Credentials*
+** Given the previous AAA context
+** A lot of systems for stages of pipelines (SCM, CI Server, Environment, WebServices, etc.)
+** How to enforce homogeneity of AAA ?
+* *Credential management* is the practices and tools that avoid leaking authentication
+information to non authorized users.
+
+== How to do security ? Detection is better
+
+* Security has to be *meta*: how to enforce security itself ?
+* *Auditing* the security processes and system is a method to *validate* them.
+* It can be seen as a type of Acceptance Testing:
+** Needs to be run continuously
+** Should be done by someone other than the user being audited
+** It can be related to external certification for external confidence (e.g. PCI)
+
+== What did we learn ?
+
+* Security is a required discipline that must be taken into account
+from the beginning
+* It is a large subject but enforcing the rules is a big win
+* Implementing AAA framework is a good way to start
+* Security is related to feedback: which action to take when a problem arises ?
+* Measurement is not an option, but a must have
+
+== Going further
+
+Some recommended readings on this subject:
+
+* https://danielmiessler.com/study/infosecconcepts/
+* http://searchsecurity.techtarget.com/definition/authentication-authorization-and-accounting
+* http://www.nap.edu/read/1581/chapter/1
+* https://cryptome.org/2013/09/infosecurity-cert.pdf
+* https://danielmiessler.com/study/infosecconcepts/

@@ -4,13 +4,19 @@ include::./attributes.adoc[]
 
 Damien DUPORTAL
 
+++++
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+</a>
+<br />This work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+  Creative Commons Attribution 4.0 International License
+</a>.
+++++
+
 :leveloffset: +1
-include::{chaptersdir}/02-hello.adoc[]
-include::{chaptersdir}/03-objectifs.adoc[]
-include::{chaptersdir}/04-definitions.adoc[]
-include::{chaptersdir}/05-simple-pipeline.adoc[]
-include::{chaptersdir}/06-pipeline-basiques.adoc[]
-include::{chaptersdir}/07-agents.adoc[]
-include::{chaptersdir}/08-pipeline-avances.adoc[]
+
+include::{chaptersdir}/section-00/index.adoc[]
+include::{chaptersdir}/section-01/index.adoc[]
 
 :leveloffset: -1
