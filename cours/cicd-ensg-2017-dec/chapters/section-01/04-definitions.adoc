@@ -2,14 +2,6 @@
 [background-color="hsl(50, 89%, 74%)"]
 = Définitions
 
-== Continuous Integration (CI)
-
-image::{imagedir}/fail-fast-continuous-integration.png[height=350]
-
-* Chaque intégration est validée par un *build automatisé* (avec tests)
-* Le code est *intégré souvent*, au moins journellement, pour que l'intégration soit un non-event
-* Construire et intégrer le code *en continu*, avec une boucle de feedback
-
 == DevOps: Software as a "Supply Chain"
 
 image::{imagedir}/supply-chain.png[]

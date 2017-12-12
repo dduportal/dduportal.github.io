@@ -1,29 +1,8 @@
 
 [background-color="hsl(50, 89%, 74%)"]
-= "Continuous World" Fundamentals
+= "Continuous Everything"
 
-== Defining the "Continuous World"
-
-This section describes the differences and use cases for:
-
-* Continuous Integration
-* Continuous Delivery
-* Continuous Deployment
-
-== Continuous Integration (CI)
-
-== Why Use Continuous Integration ?
-
-Allows a team to develop cohesive software more rapidly
-
-image::{imagedir}/big-bugs.jpg[caption="Big Bugs",width=500,link=http://cartoontester.blogspot.be/2010/01/big-bugs.html]
-
-[quote, Martin Fowler]
-____
-Continuous Integration doesn’t get rid of bugs, but it does make them dramatically easier to find and remove.
-____
-
-== What is Continuous Integration (CI) ?
+== Qu'est ce que l'Intégration Continue ?
 
 [quote, Martin Fowler - Continuous Integration]
 ____
@@ -32,96 +11,72 @@ integrate their work *frequently*. Usually each person integrates at least daily
 leading to *multiple* integrations per day.
 ____
 
-== How to do Continuous Integration ?
+== Intégration Continue (CI)
 
-* Each integration is verified by an *automated* build (including test)
-* Integrate code *often*, at least daily, to make integration a *non-event*
-* *Continuously* build and integrate
-** Trigger builds automatically based on commit and merge actions and success of upstream builds
+image::{imagedir}/fail-fast-continuous-integration.png[height=250]
 
-image::{imagedir}/ci-howto.png[caption=CI,width=600]
+* Construire et intégrer le code *en continu*
+* Le code est intégré *souvent*, au moins quotidiennement pour que
+l'intégration soit un _non-évenement_
+* Chaque intégration est validée par une construction
+*automatisée* avec tests
 
-== Continuous Delivery (CD)
+== Pourquoi la CI ?
 
-== Why use Continuous Delivery ?
+*But :* Détecter les fautes au plus tôt
 
-[quote]
+image::{imagedir}/big-bugs.jpg[caption="Big Bugs",width=500,link=http://cartoontester.blogspot.be/2010/01/big-bugs.html]
+
+[quote, Martin Fowler]
+____
+Continuous Integration doesn’t get rid of bugs, but it does make them
+dramatically easier to find and remove.
+____
+
+== Livraison Continue
+
+Continous Delivery (CD)
+
+
+== Pourquoi la Livraison Continue ?
+
+* Diminuer les risque liés au déploiement
+* Permettre de récolter des retours utilisateurs plus souvent
+* Rendre l'avancement visible par *tous*
+
+[quote, Mary and Tom Poppendieck]
 ____
 How long would it take to your organization to deploy a change that
 involves just one single line of code?
 ____
 
-image::{imagedir}/poll-release-cadence.jpg[caption="Release Cadence",width=600]
+== Qu'est ce que la Livraison Continue ?
 
-* Reduce deployment risks
-* Allow more frequent user feedback
-* Make progress observable for everyone
-
-
-[NOTE.speaker]
---
-Mary and Tom Poppendieck wrote the _Lean Software Development: An Agile Toolkit_ book in 2003
-http://www.poppendieck.com/
---
-
-== What is Continuous Delivery ?
-
-Continuous Delivery is the next step after Continuous Integration:
-
-* Each change to the system *can* be released for *production*
-* Delivery can be done at *any* time, on *any* environment
-* CD Pipeline produces a validated deployable artifact
-
-image::{imagedir}/cd-what.png[caption=Continuous Delivery,width=300,link=http://blog.arungupta.me/continuous-integration-delivery-deployment-maturity-model]
+* Suite logique de l'intégration continue:
+** Chaque changement est *potentiellement* déployable en production
+** Le déploiement peut donc être effectué à *tout* moment
 
 [quote, Martin Fowler]
 ____
 Your team prioritizes keeping the software *deployable* over working on new features
 ____
 
-== How to do Continuous Delivery ?
+== Déploiement Continu
 
-* Have a collaborative working relationship with *everyone* involved
-** DevOps is a popular model i.e. 2 Pizza Team
-* Use *Delivery Pipelines*, which are automated implementations of
-your application’s build lifecycle process.
-This is discussed more later in this course.
+Continuous Deployment
 
-image::{imagedir}/cd-howto-pipeline.png[caption=Continuous Delivery Pipeline,width=800,link=https://xebia.github.io/cd-with-docker]
+== Qu'est ce que le Déploiement Continu ?
 
-== Continuous Deployment
-
-== What is Continuous Deployment ?
-
-* Continuous Deployment is the last step after Continuous Delivery.
-** Used by Amazon and Netflix
-* *Any change* to the system is automatically pushed to *production*.
-** Not appropriate in all scenarios
-
-image::{imagedir}/continuous-deployment.png[caption=Continuous Deployment,width=400,link=http://blog.arungupta.me/continuous-integration-delivery-deployment-maturity-model]
+* Version "avancée" de la livraison continue:
+** Chaque changement *est* déployé en production, de manière *automatique*
+* Question importante: En avez-vous besoin ?
+** Avez-vous les mêmes besoin que Amazon Google ou Netflix ?
 
 == Continuous Delivery versus Deployment
 
-These two terms are easily confused:
-
-* Continuous Delivery needs a *manual* step before it is deployed to production.
-* Continuous Deployment deploys the modified and tested software to production automatically.
-** Full automated testing and reporting is essential to trusting Continuous Deployment
-
 image::{imagedir}/continuous-depl-vs-delivery.jpg[caption=Continuous Delivery vs Deployment,width=700,link=http://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-continuous-deployment]
 
-== What did we learn ?
-
-* Continuous Integration (CI) is the frequent automatic integration of code
-* Continuous Delivery (CD) is the natural extension of CI. It focuses on ensuring the code
-is always ready to be deployed, although manual intervention is required to
-actually deploy the software.
-* Continuous Deployment is the next step, automatically deploy any changes to
-production
-
-== Going further
-
-Some recommended readings on this subject:
+== Pour aller plus loin...
 
 * http://martinfowler.com/articles/continuousIntegration.html
 * http://martinfowler.com/bliki/ContinuousDelivery.html
