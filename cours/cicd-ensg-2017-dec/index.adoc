@@ -17,5 +17,6 @@ include::{chaptersdir}/section-00/index.adoc[]
 include::{chaptersdir}/section-01/index.adoc[]
 include::{chaptersdir}/section-02/index.adoc[]
 include::{chaptersdir}/section-03/index.adoc[]
+include::{chaptersdir}/section-04/index.adoc[]
 
 :leveloffset: -1
