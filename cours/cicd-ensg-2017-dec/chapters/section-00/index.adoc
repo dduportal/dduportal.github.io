@@ -1,4 +1,4 @@
 
 include::bonjour.adoc[]
-include::objectifs.adoc[]
+include::organisation-cours.adoc[]
 include::evaluation.adoc[]
