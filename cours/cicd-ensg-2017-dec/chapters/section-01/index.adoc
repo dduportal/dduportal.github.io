@@ -2,6 +2,5 @@
 include::scm.adoc[]
 include::testing.adoc[]
 include::continuous-xx.adoc[]
-include::software-supply-chain.adoc[]
-include::boucle-feedback.adoc[]
+include::supply-chain-logicielle.adoc[]
 include::securite-basiques.adoc[]

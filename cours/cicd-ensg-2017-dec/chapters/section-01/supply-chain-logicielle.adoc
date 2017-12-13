@@ -1,0 +1,148 @@
+
+[background-color="hsl(50, 89%, 74%)"]
+= Chaîne Logistique du Logiciel
+
+"Software Supply Chain"
+
+== La boucle de rétroaction
+
+"Feedback loop" / "Boucle de feedback"
+
+== Pourquoi de la rétroaction ?
+
+* _Problèmatique :_ réagir *rapidement* pour corriger une faute
+** "Au plus tôt, au moins cher"
+* Problème #1: Avoir un retour
+* Problème #2: Réagir *systématiquement* sur un retour
+* Problème #3: Avoir *confiance*
+
+== Qu'est ce qu'une boucle de Feedback ?
+
+image::{imagedir}/feedback-loop.png[caption="Feedback Loop"]
+
+== Comment implémenter la rétroaction ?
+
+* Quels *acteurs* du système ?
+* Quel médium de *communication* ?
+* Quel déclencheurs et quelles limites ?
+
+* *Culture à construire*, les outils suivent facilement
+
+== Chaîne Logistique du Logiciel
+
+image::{imagedir}/supply-chain.png[height=600]
+
+
+== The Pipeline
+
+image::{imagedir}/pipeline.png[height=600]
+
+== Qu'est ce qu'un Pipeline ?
+
+* *Industrialisation* du *logiciel*
+* Modélisation de la chaîne de valeur ("Value Stream Mapping")
+* "Fast is cheap": Piloté par le concept de la défaillance rapide
+("fail fast")
+
+== Anatomie d'un "Pipeline"
+
+* *Stage* ("étape"): Élément de base
+** Abstraction *atomiques* d'un ensemble d'actions
+** Exemple: "Build", "Run Unit Tests"
+** Possibilité de parallèlisation
+* *Gate* ("Porte"): Transition entre 2 étapes
+** Manuel ou automatique
+** Peuvent être conditionnelles
+* Déclenchement initial: un changement dans la base de code
+
+== A CD Pipeline Example
+
+image::{imagedir}/cd-pipeline-example.jpg[caption="A deployment Pipeline Example"]
+
+////
+Robert edited to here
+////
+== Deployment Stages of a CD Pipeline
+
+* *Deployment* is the set of actions that makes a software system ready for usage
+* Deploying software is done in *environments*
+* Environments are isolated runtimes with specific properties:
+** Production environments are where software lives for end users
+** Testing environments are locations where tests are run against software
+** Disaster Recovery Environment is an emergency location from which software
+can be run after a disaster occurs on a production environment
+
+== Automated Deployment
+
+Using _automation_ for a deployment stage:
+
+* Make deployment repeatable and less error-prone
+* Bring ROI when deploying on new environment
+* Make frequent releases possible by bringing _confidence_
+* Still can require a manual (read: _human_) trigger to have validation gate
+
+== How to do Good CD Pipelines ?
+
+* Pipelines driven by 2 golden rules:
+** Keep it Efficient
+** Always build upon known and good foundations
+
+== Keep Pipelines Efficient
+
+image::{imagedir}/cd-pipeline-wait.jpg[caption="Waiting for the pipeline build",width=400]
+
+* Try to parallelize the long-running steps:
+** Distribute by default automated ones: build, tests...
+** Manual steps should be tightly measured: Are they _really_ needed ?
+* You can even make manual gates parallelized:
+** Think it as a 1-N or N-1 relationship
+** Each stage of the _N_ is a deployment to a different environment
+
+== Distributing the Build Stage
+
+* The _build_ stage:
+** Fully automated stage.
+** Automated Gates to trigger: event from the SCM (commit, merge, pull-request)
+* Easy to distribute to be efficient:
+** Parallelize builds of different target architectures or OSes (ARM, Windows, Android...)
+** Parallelize builds on independents modules of your code before assembling (Map & Reduce)
+** Unit and Integration tests are tied to the code: run them in parallel !
+
+== Distributing the Deployment Stage
+
+* The _deployment_ stage:
+** Should be automated, but can be manual
+** Gates can be manual or automated
+* Easy to distribute the automated ones
+* You can also distribute manual gate-based if they are on different environments
+
+== An Optimized Pipeline Example
+
+image::{imagedir}/cd-pipeline-optimized-example.png[caption="An optimized deployment Pipeline Example"]
+
+== Always Build upon Good Foundations
+
+* Introducing Binary reuse: _"Only Build Your Binaries Once"_
+** Compiling again a given binary violates the efficiency rule,
+(shorter build time)
+** Ensure same version of codebase is used across the pipeline
+** If the binary does not comply with "deployable" rule,
+then it must fail a test
+** Focus on failing-fast
+
+== What did we learn ?
+
+* CD Pipeline is a great way to achieve your journey to Continuous Delivery
+* It is a model of your value stream mapping
+* Keep your pipelines efficient by parallelizing
+* Focus on failing-fast
+* Reuse good pipeline runs
+
+== Going further
+
+Some recommended readings on this subject:
+
+* http://devops.com/2014/07/29/continuous-delivery-pipeline/
+* http://martinfowler.com/bliki/DeploymentPipeline.html
+* http://www.informit.com/articles/article.aspx?p=1621865
+* https://www.thoughtworks.com/insights/blog/architecting-continuous-delivery
