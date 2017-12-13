@@ -17,7 +17,7 @@
 
 [source,bash]
 ----
-vagrant box add jenkins-lab-demo http://bit.ly/2BxqFPT
+vagrant box add jenkins-lab-demo http://bit.ly/2Bl1hfI
 ----
 
 == Initialiser l'environnement
