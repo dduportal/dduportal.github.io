@@ -11,7 +11,7 @@ des _builds_
 (au niveau du block `pipeline`)
 * On peut aussi définire des sections `agent` par "stage"
 
-== Exercice - Agents
+== Exercice : Agents
 
 * Exécuter l'étape *Build* sur un agent
 configuré avec le label `maven-jdk8`
@@ -19,14 +19,14 @@ configuré avec le label `maven-jdk8`
 configuré avec le label `java8`
 * L'éditeur Blue Ocean est utilisable
 
-== Solution - Agents
+== Solution : Agents
 
 [source,groovy,subs="attributes"]
 ----
 include::{pipeline-solutions}/06-Jenkinsfile-agents[]
 ----
 
-== Exercice - Tests Parallèles
+== Exercice : Tests Parallèles
 
 * *But:* Tester en parallèle l'application
 sur java 7 et 8
@@ -35,7 +35,7 @@ des "stages"
 * Agent `java7` pour le Test Java 7
 * L'éditeur Blue Ocean est utilisable (et recommandé)
 
-== Solution - Tests Parallèles
+== Solution : Tests Parallèles
 
 [source,groovy,subs="attributes"]
 ----
@@ -51,7 +51,7 @@ un container Docker, depuis une "image Docker",
 ou depuis un `Dockerfile` (recette maison d'image Docker)
 ** link:https://jenkins.io/doc/book/pipeline/syntax/#agent[Directive Agent sur jenkins.io]
 
-== Exercice - Agent Docker
+== Exercice : Agent Docker
 
 * Exécuter le *Build* dans un containeur
 basé sur le fichier `Dockerfile.build`
@@ -60,7 +60,7 @@ basé sur les images `maven:3-jdk-8-alpine`
 * Trick: documentation manquante sur `filename`,
 dans un block `dockerfile`
 
-== Solution - Agent Docker
+== Solution : Agent Docker
 
 [source,groovy,subs="attributes"]
 ----

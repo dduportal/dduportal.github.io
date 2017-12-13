@@ -13,11 +13,11 @@ link:https://jenkins.io/doc/pipeline/steps/pipeline-input-step/[Documentation St
 * Généralement utilisé dans un "stage" dédié.
 ** Obligatoirement avec `agent none` (pas d'exécuteur, pas de workspace)
 
-== Exercice - Validation Humaine
+== Exercice : Validation Humaine
 
 * Ajouter une stage "approval" avant le déploiement
 
-== Solution - Validation Humaine
+== Solution : Validation Humaine
 
 [source,groovy,subs="attributes"]
 ----
@@ -43,13 +43,13 @@ en tant que variables d'environement:
 ** Ou en utilisant `withEnv` dans un block `steps`
 pour une instruction spécifique
 
-== Exercice - Déploiement Conditionnel
+== Exercice : Déploiement Conditionnel
 
 * N'éxecuter les "stages" *Approval* et *Deploy* que:
 ** *Si* on se trouve sur la branche `master`
 ** *Ou si* la variable `FORCE_DEPLOY` est à `true`
 
-== Solution - Déploiement Conditionnel
+== Solution : Déploiement Conditionnel
 
 [source,groovy,subs="attributes"]
 ----
@@ -63,13 +63,13 @@ au pipeline
 * Disponible en tant que variables accessibles dans l'objet `params`
 * Oeuf & Poule : Jenkins ne peut accéder au paramètre lors dur 1er build
 
-== Exercice - Paramètres
+== Exercice : Paramètres
 
 * Ajouter un paramètre `DEPLOY_MESSAGE`
 dont la valeur par défaut est `Deploy ?`
 * Ce paramètre est utilisé dans le `input`
 
-== Solution - Paramètres
+== Solution : Paramètres
 
 [source,groovy,subs="attributes"]
 ----
@@ -86,14 +86,14 @@ link:https://jenkins.io/doc/book/pipeline/syntax/#options[]
 * Certaines options comme `timeout` peuvent être appliquée
 dans un bloc `step`
 
-== Exercice - Options & Timeout Approval
+== Exercice : Options & Timeout Approval
 
 * On souhaite que la "stage" *Approval* attende 3 minute
 avant d'arrêter le pipeline
 * On ne veut conserver que les 5 derniers builds d'un
 pipeline: limiter l'usage disque
 
-== Solution - Options & Timeout Approval
+== Solution : Options & Timeout Approval
 
 [source,groovy,subs="attributes"]
 ----
@@ -102,7 +102,7 @@ include::{pipeline-solutions}/12-Jenkinsfile-options[]
 
 == Shared Libraries
 
-== Exercice - Shared Libraries
+== Exercice : Shared Libraries
 
 * Create a repository `jenkins-libs`
 ** Init with a file `vars/runPipeline.groovy`:
@@ -115,7 +115,7 @@ include::{pipeline-solutions}/13-shared-library-basic-example[]
 ** Add the shared library
 * Adapt the pipeline to run the function in Build stage
 
-== Solution - Shared Libraries
+== Solution : Shared Libraries
 
 [source,groovy,subs="attributes"]
 ----

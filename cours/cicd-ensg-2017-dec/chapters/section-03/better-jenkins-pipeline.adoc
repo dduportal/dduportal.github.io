@@ -10,7 +10,6 @@
 * Les tests d'intégration sont dans `src/test/java/hello`
 * Indices:
 ** _Integration Tests:_ == *IT*
-** Il suffit de savoir commenter/dé-commenter
 
 == Solution: Réparer le build
 
