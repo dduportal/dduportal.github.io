@@ -1,0 +1,92 @@
+pipeline {
+  agent any
+  libraries {
+    lib('jenkins-libs@master')
+  }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+  parameters {
+    string(name: 'DEPLOY_MESSAGE', defaultValue: 'Deploy ?', description: 'Message de déploiement')
+  }
+  environment {
+    FORCE_DEPLOY = 'false'
+  }
+  stages {
+    stage('Build') {
+      agent {
+        dockerfile {
+          filename 'Dockerfile.build'
+          label 'docker'
+        }
+      }
+      steps {
+        runPipeline('Salut')
+        sh './scripts/build.sh'
+      }
+      post {
+        always {
+          junit 'target/**/*.xml'
+        }
+        success {
+          archiveArtifacts 'target/*.jar'
+          stash(name: 'build-result', includes: 'target/**/*')
+        }
+      }
+    }
+    stage('Test') {
+      parallel {
+        stage('Test Java 8') {
+          agent {
+            docker {
+              image 'maven:3-jdk-8-alpine'
+              label 'docker'
+            }
+          }
+          steps {
+            unstash 'build-result'
+            sh './scripts/test.sh'
+            junit 'target/**/*.xml'
+          }
+        }
+        stage('Test Java 7') {
+          agent {
+            node {
+              label 'java7'
+            }
+          }
+          steps {
+            unstash 'build-result'
+            sh './scripts/test.sh'
+            junit 'target/**/*.xml'
+          }
+        }
+      }
+    }
+    stage('Approval') {
+      agent none
+      steps {
+        timeout(time: 3, unit: 'MINUTES') {
+          input(message: params.DEPLOY_MESSAGE, ok: 'Yes Deploy!')
+        }
+      }
+      when {
+        anyOf {
+          branch 'master'
+          environment name: 'FORCE_DEPLOY', value: 'true'
+        }
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh './scripts/deploy.sh'
+      }
+      when {
+        anyOf {
+          branch 'master'
+          environment name: 'FORCE_DEPLOY', value: 'true'
+        }
+      }
+    }
+  }
+}

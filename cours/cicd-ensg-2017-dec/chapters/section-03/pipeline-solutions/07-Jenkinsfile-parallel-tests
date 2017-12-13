@@ -1,0 +1,57 @@
+pipeline {
+  agent any
+  stages {
+    stage('Build') {
+      agent {
+        node {
+          label 'maven-java8'
+        }
+      }
+      steps {
+        sh './scripts/build.sh'
+      }
+      post {
+        always {
+          junit 'target/**/*.xml'
+        }
+        success {
+          archiveArtifacts 'target/*.jar'
+          stash(name: 'build-result', includes: 'target/**/*')
+        }
+      }
+    }
+    stage('Test') {
+      parallel {
+        stage('Test Java 8') {
+          agent {
+            node {
+              label 'java8'
+            }
+          }
+          steps {
+            unstash 'build-result'
+            sh './scripts/test.sh'
+            junit 'target/**/*.xml'
+          }
+        }
+        stage('Test Java 7') {
+          agent {
+            node {
+              label 'java7'
+            }
+          }
+          steps {
+            unstash 'build-result'
+            sh './scripts/test.sh'
+            junit 'target/**/*.xml'
+          }
+        }
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh './scripts/deploy.sh'
+      }
+    }
+  }
+}

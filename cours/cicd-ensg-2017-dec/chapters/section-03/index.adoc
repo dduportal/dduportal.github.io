@@ -1,0 +1,6 @@
+
+include::jenkins.adoc[]
+include::simple-jenkins-pipeline.adoc[]
+include::better-jenkins-pipeline.adoc[]
+include::jenkins-agents.adoc[]
+include::advanced-jenkins-pipeline.adoc[]
