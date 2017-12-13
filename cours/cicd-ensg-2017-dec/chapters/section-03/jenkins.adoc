@@ -2,53 +2,73 @@
 [background-color="hsl(50, 89%, 74%)"]
 = Jenkins
 
-== Jenkins Project
-[.right.text-center]
-image::{imagedir}/jenkins_logo.png[height="400",float="left"]
+== Meet Jenkins
+image::{imagedir}/jenkins-background.jpg[background, size=cover]
 
-* Logiciel Open Source
-* Orchestrateur de tâches
+[quote]
+--
+Jenkins is an open source automation server which enables developers
+around the world to reliably build, test, and deploy their software.
+--
+
+image::{imagedir}/jenkins_logo.png[caption="Jenkins Logo"]
+
+== Jenkins
+image::{imagedir}/jenkins-background.jpg[background, size=cover]
+
+* Orchestrateur de tâches Open Source
+* #1 Serveur Intégration Continue Integration
 * Un des tout premiers moteur d'intégration continue
-* Architecture  centrée sur les plugins
-** Un gigantesque écosystème
+** Créé par Kohsuke Kawaguchi en _2006_
+* Architecture orientée plugins
 
-== !
+== Communauté Jenkins
+image::{imagedir}/jenkins-background.jpg[background, size=cover]
+
+* Une communauté *indépendant* et *active*
+(link:http://jenkins.io[jenkins.io,window=_blank])
+** Projet original: "Hudson", renommé "Jenkins" en 2011
+** 500+ releases
+** 150,000+ installations actives
+** 1,200+ plugins
+
+== Un Outil Populaire
+image::{imagedir}/jenkins-background.jpg[background, size=cover]
+
+image::{imagedir}/ci-usage-rebel-lab-2016.jpg[width=400]
+
+[.footer]
+Source : link:http://pages.zeroturnaround.com/RebelLabs-Developer-Productivity-Report-2016.html[RebelLabs Tools and Technologies Leaderboard 2016,window=_blank]
+
+== Jenkins en 2016 : Jenkins *2*
+image::{imagedir}/jenkins-background.jpg[background, size=cover]
+
+* *But :* CI -> CD
+* Pas de "cassure" depuis Jenkins 1
+* Expérience "premièr démarrage" améliorée
+* *Pipeline-as-Code:*
+** Syntaxe "scriptée" : "Code your Pipeline"
+
+== Jenkins en 2017
+image::{imagedir}/jenkins-background.jpg[background, size=cover]
 
 image::{imagedir}/BlueOcean.png[]
-
 
 == Blue Ocean
 * Pierre angulaire de l'évolution de Jenkins
 * Visualisation et manipulation de "Pipelines"
 * GUI moderne, se concentrant sur les actions principales
 
+== Jenkins Pipeline
 
-== Jenkins Pipelines
-
-* Un outil pour définir votre flux de Continuous Delivery/Deployment avec votre code
-* != outil de création de job comme "Job DSL"
-
-== Ses avantages:
-
-* Réduit le nombre de jobs nécessaires
-* Spécification facilitée par du "code"
-* Survi au redémarrage du Jenkins Master
-
-
-
-== Définition
-
-* Le Pipeline est décrit dans un fichier texte: le JenkinsFile
+* Un outil pour définir votre "Pipeline" dans Jenkins
+* Le Pipeline est décrit dans un fichier texte: le `JenkinsFile`
 ** DSL spécifique
-** stocké dans un SCM
-*** versionné
-*** isolation par branche
-*** suit les patterns à la “Git / Github / Gitlab flow”
-
+** Stocké dans un SCM
 
 == Débuter avec les Pipelines
 
-* Pipeline-as-code: Nous avons besoin d'un `Jenkinsfile`
+* "Pipeline-as-code" : Nous avons besoin d'un `Jenkinsfile`
 
 * Par où commencer ?
 ** link:https://jenkins.io/doc/pipeline/tour/hello-world/[Getting Started with Pipeline,window=_blank]
@@ -56,7 +76,7 @@ image::{imagedir}/BlueOcean.png[]
 ** link:https://jenkins.io/doc/book/pipeline/syntax/[Pipeline Syntax Reference,windows=blank]
 ** link:https://jenkins.io/doc/pipeline/steps/[Pipeline Steps Reference,windows=blank]
 
-== Declarative or Scripted Pipelines ?
+== Syntaxe Déclarative ou Scriptée ?
 
 * *Declarative*
 ** Syntaxe par défaut

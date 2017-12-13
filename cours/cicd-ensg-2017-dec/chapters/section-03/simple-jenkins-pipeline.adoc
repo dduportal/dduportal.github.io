@@ -1,74 +1,71 @@
 
 [background-color="hsl(50, 89%, 74%)"]
-= Simple Pipeline
+= Simple Jenkins Pipeline
 
-== Accessing Jenkins
+== Accéder à Jenkins
 
-* Access your Jenkins instance:
-** link:{jenkins-url}[{jenkins-url},window=_blank]
-** *Log in*  as the user *`butler`* (password is the same)
-** This is the "Jenkins Classic GUI"
+* Cliquez sur le lien "Jenkins" sur la page d'accueil du lab
+** link:{jenkins-url}[Lien direct,window=_blank]
+** Authentifiez vous en tant que *`{admin-user}`*
+(password is `{admin-password}`)
 
 == Blue Ocean
 
-* Switch to Blue Ocean:
-** link:{jenkins-url}/blue[Direct link to Blue Ocean GUI,window=_blank]
-** _Or_ click on the item "Open Blue Ocean", on the left menu
+* Passez à l'interface Blue Ocean:
+** link:{jenkins-url}/blue[Lien direct,window=_blank]
+** _Ou_ cliquez sur le lien "Open Blue Ocean" à gauche
 
-== Exercise: Create First Project
+== Exercice : Configurer le projet dans Jenkins
 
-* Create a new Pipeline, with the following properties:
-** Stored in *Git*
-** Get the *SSH* URL from the _git server_
-** Configure Jenkins access to the source code:
-*** In Gitea, click the top-right user drop down
-*** Browse to SSH/GPG Keys
-*** Add a new key, by copy and pasting from Jenkins
+* Créer un nouveau Pipeline, avec les réglages suivants :
+** Stocké dans *Git*
+** Utilisez l'URL en *SSH*
+** Configurez Gitea pour que Jenkins puisse accéder au code :
+*** Dans Gitea, cliquez en haut à droite sur le drop-down
+*** Allez dans "Settings" -> "SSH/GPG Keys"
+*** Ajoutez la clef SSH publique générée par Jenkins
 
-== Exercise - Your First Pipeline
+== Exercice : Votre Premier Pipeline
 
-* Click the button *Create a Pipeline*
-* Use the *Blue Ocean Pipeline Editor* and *Gitea git server*
-* Create a Pipeline that have 3 stages: *Build*, *Test* and *Deploy*
-* Each stage has 1 step that prints a message
-** "Building..." for *Build*, "Testing..." for *Test* ...
-* Save, add a commit message and see the build kicking off
+* Cliquez sur le bouton *Create a Pipeline*
+* Utilisez *Blue Ocean Pipeline Editor* et le serveur *Gitea*
+* Créez un pipeline avec 3 "stages" : *Build*, *Test* et *Deploy*
+* Chaque "stage" doit avoir 1 "step" qui affiche un message
+** "Building..." pour *Build*, "Testing..." pour *Test* ...
 
-== Solution - Your first pipeline
+== Solution : Votre Premier Pipeline
 
 [source,groovy,subs="attributes"]
 ----
 include::{pipeline-solutions}/01-Jenkinsfile-echo[]
 ----
 
-== Exercise - Run tasks with Pipeline
+== Exercice : Exécuter des tâches
 
-* Using the *Blue Ocean Pipeline Editor*:
-** Edit the current Pipeline's 3 stages to run scripts
-** Scripts are stored in the `./scripts` folder (in SCM)
-** Use the step *Shell Script* (keyword `sh`)
-** Remove the `echo` steps
-* Save, add a commit message and see the build kicking off
+* En utilisant *Blue Ocean Pipeline Editor*:
+** Modifiez les 3 stages du pipeline actuel
+** Les scripts sont stockés dans le dossier `./scripts`
+** Utilisez la "step" *Shell Script* (mot clef `sh`)
+** Supprimez les steps `echo`
 
-== Solution - Run tasks with Pipeline
+== Solution : Exécuter des tâches
 
 [source,groovy,subs="attributes"]
 ----
 include::{pipeline-solutions}/02-Jenkinsfile-base[]
 ----
 
-== Exercise - Archives and Tests
+== Exercice : Archives et Tests
 
-* Using the *Blue Ocean Pipeline Editor*:
-** Edit the current Pipeline
-** *Build* stage should archive all `{asterisk}.jar` files
-*** Found in the directory `target`. TIP for pattern: `{asterisk}.jar`
-** *Test* stage should publish the `junit` test reports
-*** Found in `target`. TIP for recursive pattern: `{asterisk}{asterisk}/{asterisk}.xml`
-* Save, add a commit message and see the build kicking off
-* Build should be *UNSTABLE*
+* En utilisant le *Blue Ocean Pipeline Editor*:
+** Modifiez le pipeline actuel
+** La "stage" *Build* doit archiver tous les fichier ".jar" générés
+*** _Indices :_ Dans le dossier `target`, motif `{asterisk}.jar`
+** La "stage" *Test* doit publier les rapports de test `junit`
+*** _Indices :_ Dans le dossier `target`, motif `{asterisk}{asterisk}/{asterisk}.xml`
+* Le Pipeline doit être *UNSTABLE*
 
-== Solution - Archives and Tests
+== Solution : Archives et Tests
 
 [source,groovy,subs="attributes"]
 ----
