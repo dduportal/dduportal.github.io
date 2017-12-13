@@ -23,6 +23,7 @@
 :external-domain: localhost
 :external-port: 10000
 :admin-user: butler
+:admin-password: butler
 :homepage-url: http://{external-domain}:{external-port}
 :jenkins-url: {homepage-url}/jenkins
 :devbox-url: {homepage-url}/devbox

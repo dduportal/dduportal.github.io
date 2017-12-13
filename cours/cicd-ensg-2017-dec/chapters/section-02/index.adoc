@@ -1,0 +1,4 @@
+
+include::start-lab.adoc[]
+include::demoapp.adoc[]
+include::pipeline.adoc[]

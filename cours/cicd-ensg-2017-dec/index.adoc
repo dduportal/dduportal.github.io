@@ -15,5 +15,6 @@ link:http://creativecommons.org/licenses/by/4.0/[title="Creative Commons Attribu
 
 include::{chaptersdir}/section-00/index.adoc[]
 include::{chaptersdir}/section-01/index.adoc[]
+include::{chaptersdir}/section-02/index.adoc[]
 
 :leveloffset: -1

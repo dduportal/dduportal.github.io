@@ -1,0 +1,11 @@
+
+[background-color="hsl(50, 89%, 74%)"]
+= Demo Pipeline
+
+== Discussion
+
+* Définissons ensemble un pipeline
+
+== Scripts
+
+* Etudier le contenu du dossier `scripts`
