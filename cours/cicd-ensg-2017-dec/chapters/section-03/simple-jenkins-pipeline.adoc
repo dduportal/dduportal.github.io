@@ -7,7 +7,7 @@
 * Cliquez sur le lien "Jenkins" sur la page d'accueil du lab
 ** link:{jenkins-url}[Lien direct,window=_blank]
 ** Authentifiez vous en tant que *`{admin-user}`*
-(password is `{admin-password}`)
+(le mot de passe est `{admin-password}`)
 
 == Blue Ocean
 
