@@ -81,7 +81,7 @@ wiki, éditeur de texte online, etc.
 * Exemples: GitHub, Bitbucket by Atlassian, Amazon CodeCommit,
 Visual Studio Online by Microsoft, SourceForge, GitLab.com, etc.
 
-== SCM "Hébergés dans le Cloud"
+== SCM "à la maison"
 
 * Pour pallier au risque précédent,
 on trouve des versions "On-Premide" (généralement payantes)
