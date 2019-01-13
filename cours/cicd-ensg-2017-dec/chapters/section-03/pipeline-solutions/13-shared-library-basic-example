@@ -1,4 +1,0 @@
-
-def call(String MESSAGE) {
-  echo "Lib: ${MESSAGE}"
-}

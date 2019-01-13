@@ -1,4 +1,0 @@
-
-include::bonjour.adoc[]
-include::organisation-cours.adoc[]
-include::evaluation.adoc[]

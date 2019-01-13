@@ -1,6 +1,0 @@
-
-include::scm.adoc[]
-include::testing.adoc[]
-include::continuous-xx.adoc[]
-include::supply-chain.adoc[]
-include::securite-basiques.adoc[]
